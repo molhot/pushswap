@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
+/*   Updated: 2022/11/11 21:38:07 by satushi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -11,17 +23,17 @@
 # include <stdint.h>
 # include <limits.h>
 
-
 typedef struct stac
 {
-	int				num;
-	struct stac 	*prev;
-	struct stac		*next;
-}stac_content;
-
+	int			num;
+	struct stac	*prev;
+	struct stac	*next;
+}t_staccontent;
 
 void			push_swap(size_t arg_num, char **num_ch);
 int				ft_atoi(const char *str);
-void			push_swap_ra(stac_content **a);
+void			push_swap_ra(t_staccontent **a);
+void			push_swap_rb(t_staccontent **b);
+void			push_swap_rr(t_staccontent **a, t_staccontent **b);
 
-# endif
+#endif
