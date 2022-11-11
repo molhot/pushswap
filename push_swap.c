@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/11 22:39:13 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/12 00:30:52 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ t_staccontent	**insert_list(t_staccontent **subject, int num, char **num_chr)
 		i++;
 		lists = lists->next;
 	}
-	(*subject)->prev = lists->next;
+	(lists)->prev = house_list;
+	(lists)->next = *subject;
+	(*subject)->prev = lists;
 	return (subject);
 }
 
