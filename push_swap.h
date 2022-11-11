@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/11 21:38:07 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/11 22:07:45 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@
 
 typedef struct stac
 {
-	int			num;
+	size_t		num;
 	struct stac	*prev;
 	struct stac	*next;
 }t_staccontent;
 
-void			push_swap(size_t arg_num, char **num_ch);
-int				ft_atoi(const char *str);
-void			push_swap_ra(t_staccontent **a);
-void			push_swap_rb(t_staccontent **b);
-void			push_swap_rr(t_staccontent **a, t_staccontent **b);
+void		push_swap(int arg_num, char **num_ch);
+int			ft_atoi(const char *str);
+void		push_swap_ra(t_staccontent **a);
+void		push_swap_rb(t_staccontent **b);
+void		push_swap_rr(t_staccontent **a, t_staccontent **b);
+void		push_swap_sa(t_staccontent **a);
 
 #endif
