@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/15 20:37:23 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/15 22:21:23 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,29 @@ void	push_swap(int arg_num, char **num_ch)
 	b = list_initialization(arg_num);
 	a = insert_list(a, arg_num, num_ch);
 	b = insert_list(b, arg_num, num_ch);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 	// for test//
 	printf("\n%s\n", "^^teststarst^^");
@@ -129,13 +152,19 @@ void	push_swap(int arg_num, char **num_ch)
 	push_swap_rra(a);
 	t_staccontent *test6;
 	test6 = *a;
-	while (i <= 5)
+	while (i <= 12)
 	{
 		printf("as content num is -> %d\n", test6->num);
 		printf("addr is -> %p\n", test6);
 		i = i + 1;
 		test6 = test6->next;
 	}
+	printf("\n%s\n", "--------------------");
+	printf("\n%s\n", "LIS length test");
+	t_staccontent **test7;
+	test7 = a;
+	find_LIS(test7);
+	grasp_listlen(b);
 }
 
 int	main(int argc, char **argv)

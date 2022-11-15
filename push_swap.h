@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/15 20:09:19 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/15 22:18:14 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,9 @@ void		push_swap_rr(t_staccontent **a, t_staccontent **b);
 void		push_swap_rra(t_staccontent **a);
 void		push_swap_rrb(t_staccontent **b);
 void		push_swap_rrr(t_staccontent **a, t_staccontent **b);
+
+void		find_LIS(t_staccontent **subject);
+
+void    	grasp_listlen(t_staccontent **subject_list);
 
 #endif
