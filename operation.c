@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:45 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/14 21:00:13 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/15 20:33:10 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,18 @@ void push_swap_pa(t_staccontent **a, t_staccontent **b)
 	int			  tmp_num;
 
 	b_newhead = (t_staccontent*)malloc(sizeof(t_staccontent) * 1);
+	a_delf_b_addf = *a;
 	if(b_newhead == NULL)
 		return ;
 	tmp_num = (*a)->num;
 	*a = (*a)->next;
-	(*a)->prev = ((*a)->prev)->prev;
+	(*a)->prev = (*a)->prev->prev;
+	(*a)->prev->next = (*a);
 	free(a_delf_b_addf);
 
 	b_newhead->next = *b;
 	b_newhead->prev = (*b)->prev;
+	b_newhead->num = tmp_num;
 	(*b)->prev = b_newhead;
 	(*b)->prev->prev->next = b_newhead;
 	*b = b_newhead;
@@ -105,7 +108,7 @@ void	push_swap_rra(t_staccontent **a)
 	*a = (*a)->prev;
 }
 
-void	push_swap_rra(t_staccontent **b)
+void	push_swap_rrb(t_staccontent **b)
 {
 	*b = (*b)->prev;
 }
