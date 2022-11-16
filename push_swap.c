@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/16 21:13:00 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/17 00:09:46 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,23 @@ void	push_swap(int arg_num, char **num_ch)
 {
 	t_staccontent	**a;
 	t_staccontent	**b;
+	t_staccontent	*tmp_af;
 	lisinfo			*lislist;
 
 	a = list_initialization(arg_num);
 	b = list_initialization(arg_num);
+	printf("\n%s\n", "-----------------------");
 	a = insert_list(a, arg_num, num_ch);
-	b = insert_list(b, arg_num, num_ch);
+	printf("\n%s\n", "-----------------------");
 	lislist = find_LIS(a);
-
+	printf("\n%s\n", "-----------------------");
+	int j = 0;
+	while (*a != lislist->LISf_addr && j != 5)
+	{
+		push_swap_pa(a, b);
+		printf("addr is %p\n", *a);
+		j = j + 1;
+	}
 
 
 
@@ -74,90 +83,21 @@ void	push_swap(int arg_num, char **num_ch)
 
 	// for test//
 	printf("\n%s\n", "^^teststarst^^");
-	t_staccontent	*listest;
-	listest = *a;
-	while (listest != lislist->LISf_addr)
-		listest = listest ->next;
-	while (listest->prev != lislist->LISe_addr)
-	{
-		printf("lislist component is %d ", listest->num);
-		listest = listest->next;
-	}
-	printf("\nlislength is %zu\n", lislist->LISlen);
+	t_staccontent	*listesta;
+	t_staccontent	*listestb;
+
+	listesta = *a;
+	listestb = *b;
 	int i = 0;
-	t_staccontent *test;
-	test = *a;
-	while (i <= 5)
+	printf("\n%s\n", "-----------------------");
+	while(i != 10)
 	{
-		printf("content num is -> %d\n", test->num);
-		printf("addr is -> %p\n", test);
-		i = i + 1;
-		test = test->next;
+		printf("a's int is %d\n", listesta->num);
+		printf("b's int is %d\n", listestb->num);
+		listesta = listesta->next;
+		listestb = listestb->next;
+		i = 0;
 	}
-	printf("\n%s\n", "--------------------");
-	i = 0;
-	push_swap_sa(a);
-	t_staccontent *test2;
-	test2 = *a;
-	while (i <= 5)
-	{
-		printf("content num is -> %d\n", test2->num);
-		printf("addr is -> %p\n", test2);
-		i = i + 1;
-		test2 = test2->next;
-	}
-	printf("\n%s\n", "--------------------");
-	i = 0;
-	push_swap_pa(a, b);
-	t_staccontent *test3;
-	test3 = *a;
-	while (i <= 5)
-	{
-		printf("as content num is -> %d\n", test3->num);
-		printf("addr is -> %p\n", test3);
-		i = i + 1;
-		test3 = test3->next;
-	}
-	printf("\n%s\n", "--------------------");
-	t_staccontent *test4;
-	test4 = *b;
-	i = 0;
-	while (i <= 7)
-	{
-		printf("bs content num is -> %d\n", test4->num);
-		printf("addr is -> %p\n", test4);
-		i = i + 1;
-		test4 = test4->next;
-	}
-	printf("\n%s\n", "--------------------");
-	i = 0;
-	push_swap_ra(a);
-	t_staccontent *test5;
-	test5 = *a;
-	while (i <= 5)
-	{
-		printf("as content num is -> %d\n", test5->num);
-		printf("addr is -> %p\n", test5);
-		i = i + 1;
-		test5 = test5->next;
-	}
-	printf("\n%s\n", "--------------------");
-	i = 0;
-	push_swap_rra(a);
-	t_staccontent *test6;
-	test6 = *a;
-	while (i <= 12)
-	{
-		printf("as content num is -> %d\n", test6->num);
-		printf("addr is -> %p\n", test6);
-		i = i + 1;
-		test6 = test6->next;
-	}
-	printf("\n%s\n", "--------------------");
-	printf("\n%s\n", "LIS length test");
-	t_staccontent **test7;
-	test7 = a;
-	grasp_listlen(b);
 }
 
 int	main(int argc, char **argv)
