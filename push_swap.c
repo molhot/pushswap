@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/15 22:21:23 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/16 21:13:00 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,13 @@ void	push_swap(int arg_num, char **num_ch)
 {
 	t_staccontent	**a;
 	t_staccontent	**b;
+	lisinfo			*lislist;
 
 	a = list_initialization(arg_num);
 	b = list_initialization(arg_num);
 	a = insert_list(a, arg_num, num_ch);
 	b = insert_list(b, arg_num, num_ch);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	lislist = find_LIS(a);
 
 
 
@@ -90,6 +74,16 @@ void	push_swap(int arg_num, char **num_ch)
 
 	// for test//
 	printf("\n%s\n", "^^teststarst^^");
+	t_staccontent	*listest;
+	listest = *a;
+	while (listest != lislist->LISf_addr)
+		listest = listest ->next;
+	while (listest->prev != lislist->LISe_addr)
+	{
+		printf("lislist component is %d ", listest->num);
+		listest = listest->next;
+	}
+	printf("\nlislength is %zu\n", lislist->LISlen);
 	int i = 0;
 	t_staccontent *test;
 	test = *a;
@@ -163,7 +157,6 @@ void	push_swap(int arg_num, char **num_ch)
 	printf("\n%s\n", "LIS length test");
 	t_staccontent **test7;
 	test7 = a;
-	find_LIS(test7);
 	grasp_listlen(b);
 }
 

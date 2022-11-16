@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/15 22:18:14 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/16 20:59:48 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ typedef struct stac
 	struct stac	*next;
 }t_staccontent;
 
+typedef struct LISinfo
+{
+	size_t	LISlen;
+	struct stac	*LISf_addr;
+	struct stac	*LISe_addr;
+}lisinfo;
+
 void		push_swap(int arg_num, char **num_ch);
 int			ft_atoi(const char *str);
 void		push_swap_sa(t_staccontent **a);
@@ -48,8 +55,10 @@ void		push_swap_rra(t_staccontent **a);
 void		push_swap_rrb(t_staccontent **b);
 void		push_swap_rrr(t_staccontent **a, t_staccontent **b);
 
-void		find_LIS(t_staccontent **subject);
+lisinfo		*find_LIS(t_staccontent **subjectlist);
 
-void    	grasp_listlen(t_staccontent **subject_list);
+size_t    	grasp_listlen(t_staccontent **subject_list2);
+void		grasp_listmaxvalue(t_staccontent **subject_list);
+void		grasp_listmaxvalue(t_staccontent **subject_list);
 
 #endif

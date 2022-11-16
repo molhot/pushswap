@@ -3,35 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   find_LIS.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:31:44 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/15 22:17:45 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/16 21:43:10 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    find_LIS(t_staccontent **subjectlist)
+static	lisinfo	*ready_LISlist()
+{
+	lisinfo	*lislist;
+
+	lislist = (lisinfo *)malloc(sizeof(lisinfo) * 1);
+	return (lislist);
+}
+
+static	void	inputLISf_addr(lisinfo *sublislist, t_staccontent **subjectsearchlist)
+{
+	size_t			counter;
+	t_staccontent	*serchedlist;
+
+	counter = sublislist->LISlen;
+	serchedlist = *subjectsearchlist;
+	while (serchedlist != sublislist->LISe_addr)
+		serchedlist = serchedlist->next;
+	while (counter != 1)
+	{
+		serchedlist = serchedlist->prev;
+		counter--;
+	}
+	sublislist->LISf_addr = serchedlist;
+}
+
+lisinfo	*find_LIS(t_staccontent **subjectlist)
 {
     t_staccontent   *sentinel;
-    size_t			LIS_len;
     size_t			LIS_len_tmp;
+	lisinfo			*LISinfolist;
 
-    LIS_len = 1;
+    LISinfolist = ready_LISlist();
+	LISinfolist->LISlen = 1;
 	LIS_len_tmp = 1;
 	sentinel = (*subjectlist)->next;
 	while (sentinel != *subjectlist)
 	{
 		if(sentinel->prev->num < sentinel->num)
 			LIS_len_tmp = LIS_len_tmp + 1;
-		if(LIS_len_tmp > LIS_len && sentinel->prev->num > sentinel->num)
-		{
-			LIS_len = LIS_len_tmp;
+		else if(sentinel->prev->num > sentinel->num && LIS_len_tmp <= LISinfolist->LISlen)
 			LIS_len_tmp = 1;
+		if(LIS_len_tmp > LISinfolist->LISlen)
+		{
+			LISinfolist->LISlen = LIS_len_tmp;
+			LISinfolist->LISe_addr = sentinel;
 		}
-		printf("tmp LISlen is %zu\n", LIS_len_tmp);
 		sentinel = sentinel->next;
 	}
-	printf("LIS length is %zu\n", LIS_len);
+	printf("now lislen is %zu\n", LISinfolist->LISlen);
+	inputLISf_addr(LISinfolist, subjectlist);
+	return (LISinfolist);
 }
