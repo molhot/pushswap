@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/18 11:18:33 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/18 19:40:06 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	push_swap(int arg_num, char **num_ch)
 	printf("\n%s\n", "-----------------------");
 	while(i != 10)
 	{
-		printf("a's int is %d\n", listesta->num);
-		//printf("b's int is %d\n", listestb->num);
+		//printf("a's int is %d\n", listesta->num);
+		printf("b's int is %d\n", listestb->num);
 		listesta = listesta->next;
 		listestb = listestb->next;
 		i = i + 1;
