@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/16 20:59:48 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/17 22:14:24 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ lisinfo		*find_LIS(t_staccontent **subjectlist);
 size_t    	grasp_listlen(t_staccontent **subject_list2);
 void		grasp_listmaxvalue(t_staccontent **subject_list);
 void		grasp_listmaxvalue(t_staccontent **subject_list);
+
+size_t		grasp_mediamnum_oflist(t_staccontent **subject);
 
 #endif

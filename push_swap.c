@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/17 00:09:46 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/18 11:18:33 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ t_staccontent	**list_initialization(int argnum)
 		free(subject_list);
 		return (NULL);
 	}
+	(*subject_list)->prev = NULL;
+	(*subject_list)->next = NULL;
+	(*subject_list)->num = 0;
 	return (subject_list);
 }
 
@@ -59,24 +62,23 @@ void	push_swap(int arg_num, char **num_ch)
 {
 	t_staccontent	**a;
 	t_staccontent	**b;
-	t_staccontent	*tmp_af;
+	t_staccontent	*sentinel;
+	//t_staccontent	*tmp_af;
 	lisinfo			*lislist;
 
 	a = list_initialization(arg_num);
 	b = list_initialization(arg_num);
-	printf("\n%s\n", "-----------------------");
 	a = insert_list(a, arg_num, num_ch);
-	printf("\n%s\n", "-----------------------");
 	lislist = find_LIS(a);
-	printf("\n%s\n", "-----------------------");
-	int j = 0;
-	while (*a != lislist->LISf_addr && j != 5)
-	{
+	while (*a != lislist->LISf_addr)
 		push_swap_pa(a, b);
-		printf("addr is %p\n", *a);
-		j = j + 1;
-	}
-
+	sentinel = *a;
+	printf("sentinel nnum is %d\n", sentinel->num);
+	while ((*a)->prev != lislist->LISe_addr)
+		push_swap_ra(a);
+	while (*a != sentinel)
+		push_swap_pa(a, b);
+	
 
 
 	
@@ -93,10 +95,10 @@ void	push_swap(int arg_num, char **num_ch)
 	while(i != 10)
 	{
 		printf("a's int is %d\n", listesta->num);
-		printf("b's int is %d\n", listestb->num);
+		//printf("b's int is %d\n", listestb->num);
 		listesta = listesta->next;
 		listestb = listestb->next;
-		i = 0;
+		i = i + 1;
 	}
 }
 

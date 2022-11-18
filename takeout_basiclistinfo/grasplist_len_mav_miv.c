@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   takeout_basiclist.c                                :+:      :+:    :+:   */
+/*   grasplist_len_mav_miv.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 22:04:17 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/16 21:10:49 by satushi          ###   ########.fr       */
+/*   Created: 2022/11/17 20:43:18 by satushi           #+#    #+#             */
+/*   Updated: 2022/11/17 22:50:54 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 size_t    grasp_listlen(t_staccontent **subject_list2)
 {
@@ -38,7 +38,7 @@ void	grasp_listmaxvalue(t_staccontent **subject_list)
 	sentinel_forlist = *subject_list;
 	while(sentinel_forlist->next != *subject_list)
 	{
-		if(maxvalue < sentinel_forlist->num)
+		if(maxvalue < (size_t)sentinel_forlist->num)
 			maxvalue = sentinel_forlist->num;
 		sentinel_forlist = sentinel_forlist->next;
 	}
@@ -54,7 +54,7 @@ void	grasp_listminvalue(t_staccontent **subject_list)
 	sentinel_forlist = *subject_list;
 	while(sentinel_forlist->next != *subject_list)
 	{
-		if(minvalue > sentinel_forlist->num)
+		if(minvalue > (size_t)sentinel_forlist->num)
 			minvalue = sentinel_forlist->num;
 		sentinel_forlist = sentinel_forlist->next;
 	}

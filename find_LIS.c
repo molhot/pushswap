@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:31:44 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/16 21:43:10 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/17 22:56:39 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ lisinfo	*find_LIS(t_staccontent **subjectlist)
 		}
 		sentinel = sentinel->next;
 	}
-	printf("now lislen is %zu\n", LISinfolist->LISlen);
 	inputLISf_addr(LISinfolist, subjectlist);
 	return (LISinfolist);
 }
