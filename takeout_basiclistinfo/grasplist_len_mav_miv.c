@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grasplist_len_mav_miv.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 20:43:18 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/17 22:50:54 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/19 20:51:07 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ size_t    grasp_listlen(t_staccontent **subject_list2)
     {
         listlen = listlen + 1;
         sentinel_list = sentinel_list->next;
-        printf(" list len is %zu\n", listlen);
     }
-    printf("list len is %zu\n", listlen);
 	return (listlen);
 }
 

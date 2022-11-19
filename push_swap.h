@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/17 22:14:24 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/19 21:29:00 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct stac
 {
 	int		num;
+	int		pivot_or_not;
 	struct stac	*prev;
 	struct stac	*next;
 }t_staccontent;
@@ -45,7 +46,7 @@ void		push_swap_sb(t_staccontent **b);
 void		push_swap_ss(t_staccontent **a,t_staccontent **b);
 
 void		push_swap_pa(t_staccontent **a, t_staccontent **b);
-
+void		push_swap_pb(t_staccontent **a, t_staccontent **b);
 
 void		push_swap_ra(t_staccontent **a);
 void		push_swap_rb(t_staccontent **b);
@@ -62,5 +63,13 @@ void		grasp_listmaxvalue(t_staccontent **subject_list);
 void		grasp_listmaxvalue(t_staccontent **subject_list);
 
 size_t		grasp_mediamnum_oflist(t_staccontent **subject);
+
+int			check_remaingnumis_overpivot(t_staccontent **subject);
+
+int			quicksortfunc(t_staccontent **a, t_staccontent **b);
+void		quicksortrepeat(t_staccontent **a, t_staccontent **b);
+
+void		adda_endoflist(t_staccontent **a_sub, t_staccontent **b_sub);
+void		addb_endoflist(t_staccontent **a_sub, t_staccontent **b_sub);
 
 #endif
