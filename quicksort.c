@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:05:48 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/23 23:16:44 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 20:55:37 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,68 +15,89 @@
 void	quicksort_firststep(t_staccontent **a, t_staccontent **b)
 {
 	int	stack_mediam_a;
-	t_staccontent *a_node;
+	size_t counter;
 
 	stack_mediam_a = mediam(a);
-	printf("%d\n", stack_mediam_a);
 	if ((*a)->num <= stack_mediam_a)
 		pa(a, b);
-	a_node = (*a)->next;
-	while(a_node != (*a))
+	counter = grasp_listlen(a);
+	while(counter != 0)
 	{
-		if ((a_node)->num <= stack_mediam_a)
+		if ((*a)->num <= stack_mediam_a)
 			pa(a, b);
-		a_node = a_node->next;
+		else
+			*a = (*a)->next;
+		counter--;
 	}
 }
 
 void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 {
 	int b_mediamnum;
-	int	counter;
-	t_staccontent	*b_node;
+	int	judgenum;
+	size_t b_len;
 
 	b_mediamnum = mediam(b);
-	printf("b mediam is %d\n", b_mediamnum);
-	counter = 0;
+
+	///
+	printf("bmediam is -> %d\n\n", b_mediamnum);
+	///
+	
+	judgenum = 0;
 	if ((*b)->num >= b_mediamnum)
 	{
-		counter = 1;
+		printf("here is under control\n");
+		judgenum++;
 		(*b)->wedge = true;
 		pb(a, b);
+		printf("judgenum is %d \n", judgenum);
 	}
-	b_node = (*b)->next;
-	while(b_node != (*b))
+	b_len = grasp_listlen(b);
+	while(b_len != 0)
 	{
 		if ((*b)->num >= b_mediamnum)
 		{
-			if (counter == 0)
+			if (judgenum == 0)
 			{
+				printf("here is under control hoo\n");
+				printf("judgenum is %d \n", judgenum);
 				(*b)->wedge = true;
-				counter = 1;
+				judgenum++;
 			}
 			pb(a, b);
 		}
-		*b = (*b)->next;
+		else
+			*b = (*b)->next;
+		b_len--;
 	}
 }
 
 void quicksort_main(t_staccontent **a, t_staccontent **b)
 {
 	size_t	b_len;
-	//////
-	//int i = 0;;
-	//////
+
+	////////////////////////
+	t_staccontent **b_alt;
+	t_staccontent *node;
+	///////////////////////
 
 	quicksort_firststep(a, b);
-	b_len = grasp_listlen(b);
-	printf("listblen is %zu\n", grasp_listlen(b));
-	while (b_len > 3)// && i != 2)
+
+	///////////////////////
+	b_alt = b;
+	node = *b_alt;
+	for(int i=0;i<12;i++)
 	{
-		printf("%s\n", "b is longer than 3 charlen");
+		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+		node = node->next;
+	}
+	printf("\n@@ here is test space @@\n\n");
+	///////////////////////
+
+	b_len = grasp_listlen(b);
+	while (b_len > 3)
+	{
 		quicksort_b_to_a(a, b);
 		b_len = grasp_listlen(b);
-		printf("listblen is %zu\n", grasp_listlen(b));
-		//i++;
 	}
 }

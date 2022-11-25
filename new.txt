@@ -1,0 +1,31 @@
+|0th is 0 and addr is 0x7ffaf1402b40 and node true or not is 0|
+|1th is 11 and addr is 0x7ffaf1402b20 and node true or not is 0|
+|2th is 10 and addr is 0x7ffaf1402b00 and node true or not is 0|
+|3th is 9 and addr is 0x7ffaf1402ae0 and node true or not is 0|
+|4th is 8 and addr is 0x7ffaf1402ac0 and node true or not is 0|
+|5th is 6 and addr is 0x7ffaf1402aa0 and node true or not is 0|
+|6th is 5 and addr is 0x7ffaf1402a80 and node true or not is 0|
+|7th is 2 and addr is 0x7ffaf1400640 and node true or not is 0|
+|8th is 1 and addr is 0x7ffaf1402c10 and node true or not is 0|
+|9th is 0 and addr is 0x7ffaf1402b40 and node true or not is 0|
+|10th is 11 and addr is 0x7ffaf1402b20 and node true or not is 0|
+|11th is 10 and addr is 0x7ffaf1402b00 and node true or not is 0|
+
+@@ here is test space @@
+
+bmediam is -> 5
+
+here is under control hoo
+judgenum is 0 
+|0 is 5 and addr is 0x7ffaf1402aa0 and node true or not is 0|
+|1 is 6 and addr is 0x7ffaf1402ac0 and node true or not is 0|
+|2 is 8 and addr is 0x7ffaf1402ae0 and node true or not is 0|
+|3 is 9 and addr is 0x7ffaf1402b00 and node true or not is 0|
+|4 is 10 and addr is 0x7ffaf1402b20 and node true or not is 0|
+|5 is 11 and addr is 0x7ffaf1402bf0 and node true or not is 1|
+|6 is 100 and addr is 0x7ffaf1402b70 and node true or not is 0|
+|7 is 200 and addr is 0x7ffaf1402b90 and node true or not is 0|
+|8 is 300 and addr is 0x7ffaf1402bb0 and node true or not is 0|
+|9 is 400 and addr is 0x7ffaf1402bd0 and node true or not is 0|
+|10 is 5 and addr is 0x7ffaf1402aa0 and node true or not is 0|
+|11 is 6 and addr is 0x7ffaf1402ac0 and node true or not is 0|

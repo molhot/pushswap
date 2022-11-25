@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:05:43 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/23 23:21:08 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 21:29:34 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 
 	freeaddr = *push;
 	newcontent = (t_staccontent*)malloc(sizeof(t_staccontent) * 1);
+	if ((*push)->wedge == true)
+		newcontent->wedge = true;
+	else
+		newcontent->wedge = false;
 	if (newcontent == NULL)
 		return ;
 	if (*inserted == NULL)

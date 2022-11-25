@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/23 23:10:00 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 21:28:16 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	insert_info_tolist(int subnum, t_staccontent *nowaddr, int n, int last, t_s
 		nowaddr->next = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
 	nowaddr->next->prev = nowaddr;
 	nowaddr->num = subnum;
+	nowaddr->wedge = false;
 }
 
 t_staccontent **insertelem_tostack(int counter, char **numstr)
@@ -44,7 +45,7 @@ t_staccontent **insertelem_tostack(int counter, char **numstr)
 	t_staccontent	*node;
 	int				i;
 
-	a = list_initialization(counter - 1);
+	a = list_initialization();
 	if (a == NULL)
 		return (NULL);
 	node = *a;
@@ -80,15 +81,13 @@ int	main(int argc, char **argv)
 
 	a = push_swap(argc, argv);
 	node = (*a);
-	printf("|nodenumis  is %d|\n",node->num);
-	printf("\n6------\n");
-	printf("listlen is %zu\n", grasp_listlen(a));
-	printf("%d\n", mediam(a));
-	while(i != 5)
+	//printf("|nodenumis  is %d|\n",node->num);
+	//printf("\n6------\n");
+	//printf("listlen is %zu\n", grasp_listlen(a));
+	//printf("mediam is %d\n", mediam(a));
+	while(i != 12)
 	{
-		printf("|%d is %d|\n",i, node->num);
-		printf("|%d is %p|\n",i, node);
-		printf("|%d is %d|\n",i, node->wedge);
+		printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
 		node = node->next;
 		i = i + 1;
 	}

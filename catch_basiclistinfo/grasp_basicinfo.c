@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grasp_basicinfo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:30:20 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/23 16:30:21 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 20:20:27 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 size_t grasp_listlen(t_staccontent **sublist)
 {
+	t_staccontent	**sublist_alt;
 	t_staccontent	*node;
 	size_t			len;
 
 	len = 1;
-	if ((*sublist)->next == *sublist)
+	sublist_alt = sublist;
+	if ((*sublist_alt)->next == *sublist_alt)
 		return (1);
-	node = (*sublist)->next;
-	while (node != *sublist)
+	node = (*sublist_alt)->next;
+	while (node != *sublist_alt)
 	{
 		len++;
 		node =node->next;
@@ -31,14 +33,16 @@ size_t grasp_listlen(t_staccontent **sublist)
 
 int	mediam(t_staccontent **sublist)
 {
+	t_staccontent	**sublist_alt;
 	t_staccontent	*node;
 	int				sum;
 	size_t			listlen;
 
-	listlen = (int)grasp_listlen(sublist);
-	node = (*sublist)->next;
+	sublist_alt = sublist;
+	listlen = (int)grasp_listlen(sublist_alt);
+	node = (*sublist_alt)->next;
 	sum = node->num;
-	while (node != *sublist)
+	while (node != *sublist_alt)
 	{
 		node =node->next;
 		sum += node->num;
