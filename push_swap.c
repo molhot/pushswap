@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/25 21:28:16 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 22:35:14 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,17 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 
 int	main(int argc, char **argv)
 {
-	int i = 0;
-	t_staccontent *node;
+	//int i = 0;
+	//t_staccontent *node;
 	t_staccontent **a;
 
 	a = push_swap(argc, argv);
-	node = (*a);
-	//printf("|nodenumis  is %d|\n",node->num);
-	//printf("\n6------\n");
-	//printf("listlen is %zu\n", grasp_listlen(a));
-	//printf("mediam is %d\n", mediam(a));
-	while(i != 12)
-	{
-		printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
-		node = node->next;
-		i = i + 1;
-	}
+	// node = (*a);
+	// while(i != 12)
+	// {
+	// 	printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+	// 	node = node->next;
+	// 	i = i + 1;
+	// }
+	return (1);
 }

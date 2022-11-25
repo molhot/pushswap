@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:05:48 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/25 20:55:37 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 22:40:30 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,12 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 	size_t b_len;
 
 	b_mediamnum = mediam(b);
-
-	///
-	printf("bmediam is -> %d\n\n", b_mediamnum);
-	///
-	
 	judgenum = 0;
 	if ((*b)->num >= b_mediamnum)
 	{
-		printf("here is under control\n");
 		judgenum++;
 		(*b)->wedge = true;
 		pb(a, b);
-		printf("judgenum is %d \n", judgenum);
 	}
 	b_len = grasp_listlen(b);
 	while(b_len != 0)
@@ -59,8 +52,6 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 		{
 			if (judgenum == 0)
 			{
-				printf("here is under control hoo\n");
-				printf("judgenum is %d \n", judgenum);
 				(*b)->wedge = true;
 				judgenum++;
 			}
@@ -77,22 +68,33 @@ void quicksort_main(t_staccontent **a, t_staccontent **b)
 	size_t	b_len;
 
 	////////////////////////
+	t_staccontent **a_alt;
 	t_staccontent **b_alt;
-	t_staccontent *node;
+	t_staccontent *b_node;
+	t_staccontent *a_node;
 	///////////////////////
 
 	quicksort_firststep(a, b);
 
 	///////////////////////
+	a_alt = a;
 	b_alt = b;
-	node = *b_alt;
-	for(int i=0;i<12;i++)
+	a_node = *a_alt;
+	b_node = *b_alt;
+	for(int i=0;i<13;i++)
 	{
-		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
-		node = node->next;
+		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, a_node->num, a_node, a_node->wedge);
+		a_node = a_node->next;
+	}
+	printf("\n@@ next is b's test @@\n\n");
+	for(int i=0;i<13;i++)
+	{
+		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, b_node->num, b_node, b_node->wedge);
+		b_node = b_node->next;
 	}
 	printf("\n@@ here is test space @@\n\n");
-	///////////////////////
+	printf("\n------------ testcase is ended ----------------\n\n\n");
+	//$$$$$$$$$$$$$$$$$$$$$$$//
 
 	b_len = grasp_listlen(b);
 	while (b_len > 3)
@@ -100,4 +102,28 @@ void quicksort_main(t_staccontent **a, t_staccontent **b)
 		quicksort_b_to_a(a, b);
 		b_len = grasp_listlen(b);
 	}
+
+	if (b_len == 3)
+		patt_threenum(b);
+	else if (b_len == 2)
+		patt_twonum(b);
+
+	///////////////////////
+	a_alt = a;
+	b_alt = b;
+	a_node = *a_alt;
+	b_node = *b_alt;
+	for(int i=0;i<13;i++)
+	{
+		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, a_node->num, a_node, a_node->wedge);
+		a_node = a_node->next;
+	}
+	printf("\n@@ next is b's test @@\n\n");
+	for(int i=0;i<13;i++)
+	{
+		printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, b_node->num, b_node, b_node->wedge);
+		b_node = b_node->next;
+	}
+	printf("\n@@ here is test space @@\n\n");
+	//$$$$$$$$$$$$$$$$$$$$$$$//
 }
