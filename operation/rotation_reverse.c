@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation.c                                         :+:      :+:    :+:   */
+/*   rotation_reverse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 20:33:04 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/17 20:34:45 by satushi          ###   ########.fr       */
+/*   Created: 2022/11/22 13:04:20 by satushi           #+#    #+#             */
+/*   Updated: 2022/11/22 13:05:40 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push_swap_ra(t_staccontent **a)
+void	push_swap_rra(t_staccontent **a)
 {
-	*a = (*a)->next;
+	*a = (*a)->prev;
 }
 
-void	push_swap_rb(t_staccontent **b)
+void	push_swap_rrb(t_staccontent **b)
 {
-	*b = (*b)->next;
+	*b = (*b)->prev;
 }
 
-void	push_swap_rr(t_staccontent **a, t_staccontent **b)
+void	push_swap_rrr(t_staccontent **a, t_staccontent **b)
 {
-	*a = (*a)->next;
-	*b = (*b)->next;
+	*a = (*a)->prev;
+	*b = (*b)->prev;
 }

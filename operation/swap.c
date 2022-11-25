@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 20:38:00 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/17 20:38:18 by satushi          ###   ########.fr       */
+/*   Created: 2022/11/21 21:52:05 by satushi           #+#    #+#             */
+/*   Updated: 2022/11/21 23:13:36 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	push_swap_sa(t_staccontent **a)
 	t_staccontent *first;
 	t_staccontent *second;
 
+	if((*a)->next == *a)
+		return ;
 	first = *a;
 	tmp = first->num;
 	second = first->next;
@@ -31,6 +33,8 @@ void	push_swap_sb(t_staccontent **b)
 	t_staccontent *first;
 	t_staccontent *second;
 
+	if((*b)->next == *b)
+		return ;
 	first = *b;
 	tmp = first->num;
 	second = first->next;
@@ -47,6 +51,14 @@ void	push_swap_ss(t_staccontent **a,t_staccontent **b)
 	t_staccontent *a_second;
 	t_staccontent *b_second;
 
+	if((*a)->next == *a || (*b)->next == *b)
+	{
+		if ((*a)->next != *a)
+			push_swap_sa(a);
+		else if((*b)->next != *b)
+			push_swap_sa(b);
+		return ;
+	}
 	a_first = *a;
 	a_tmp = a_first->num;
 	b_first = *b;

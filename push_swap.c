@@ -3,101 +3,93 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/19 21:29:32 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/23 23:10:00 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_staccontent	**list_initialization(int argnum)
+t_staccontent	**list_initialization()
 {
 	t_staccontent	**subject_list;
 
-	subject_list = (t_staccontent **)malloc(sizeof(t_staccontent *) * argnum);
+	subject_list = (t_staccontent **)malloc(sizeof(t_staccontent *) * 1);
 	if (subject_list == NULL)
 		return (NULL);
 	*subject_list = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
 	if (*subject_list == NULL)
 	{
-		free(*subject_list);
 		free(subject_list);
 		return (NULL);
 	}
-	(*subject_list)->prev = NULL;
-	(*subject_list)->next = NULL;
-	(*subject_list)->num = 0;
 	return (subject_list);
 }
 
-t_staccontent	**insert_list(t_staccontent **subject, int num, char **num_chr)
+void	insert_info_tolist(int subnum, t_staccontent *nowaddr, int n, int last, t_staccontent *f_addr)
 {
-	int				i;
-	t_staccontent	*lists;
-	t_staccontent	*house_list;
-
-	i = 0;
-	lists = *subject;
-	house_list = *subject;
-	while (i != num - 2)
-	{
-		lists -> pivot_or_not = 0;
-		if (i != 0)
-			(lists)->prev = house_list;
-		(lists)->next = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
-		house_list = lists;
-		(lists)->num = ft_atoi(num_chr[i + 1]);
-		i++;
-		lists = lists->next;
-	}
-	lists->pivot_or_not = 0;
-	(lists)->prev = house_list;
-	(lists)->num = ft_atoi(num_chr[i + 1]);
-	(lists)->next = *subject;
-	(*subject)->prev = lists;
-	return (subject);
+	if (n == last)
+		nowaddr->next = f_addr;
+	else
+		nowaddr->next = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
+	nowaddr->next->prev = nowaddr;
+	nowaddr->num = subnum;
 }
 
-void	push_swap(int arg_num, char **num_ch)
+t_staccontent **insertelem_tostack(int counter, char **numstr)
+{
+	t_staccontent	**a;
+	t_staccontent	*node;
+	int				i;
+
+	a = list_initialization(counter - 1);
+	if (a == NULL)
+		return (NULL);
+	node = *a;
+	i = 1;
+	while(i != counter)
+	{
+		insert_info_tolist(ft_atoi(numstr[i]), node, i, counter - 1, *a);
+		node = node->next;
+		i++;
+	}
+	return a;
+}
+
+t_staccontent	**push_swap(int arg_num, char **num_ch)
 {
 	t_staccontent	**a;
 	t_staccontent	**b;
-	//t_staccontent	*sentinel;
-	//t_staccontent	*tmp_af;
-	lisinfo			*lislist;
 
-	a = list_initialization(arg_num);
-	b = list_initialization(arg_num);
-	a = insert_list(a, arg_num, num_ch);
-	lislist = find_LIS(a);
-	if (lislist->LISlen == grasp_listlen(a))
-		return ;
-	quicksortrepeat(a, b);
+	a = insertelem_tostack(arg_num, num_ch);
+	b = list_initialization();
+	free(*b);
+	(*b) = NULL;
 
-	
-
-	// for test//
-	printf("\n%s\n", "^^teststarst^^");
-	t_staccontent	*listesta;
-	//t_staccontent	*listestb;
-
-	listesta = *a;
-	//listestb = *b;
-	int i = 0;
-	printf("\n%s\n", "-----------------------");
-	while(i != 10)
-	{
-		printf("a's int is %d\n", listesta->num);
-		//printf("b's int is %d\n", listestb->num);
-		listesta = listesta->next;
-		//listestb = listestb->next;
-		i = i + 1;
-	}
+	quicksort_main(a,b);
+	return a;
 }
 
 int	main(int argc, char **argv)
 {
-	push_swap(argc, argv);
+	int i = 0;
+	t_staccontent *node;
+	t_staccontent **a;
+
+	a = push_swap(argc, argv);
+	node = (*a);
+	printf("|nodenumis  is %d|\n",node->num);
+	printf("\n6------\n");
+	printf("listlen is %zu\n", grasp_listlen(a));
+	printf("%d\n", mediam(a));
+	while(i != 5)
+	{
+		printf("|%d is %d|\n",i, node->num);
+		printf("|%d is %p|\n",i, node);
+		printf("|%d is %d|\n",i, node->wedge);
+		node = node->next;
+		i = i + 1;
+	}
 }

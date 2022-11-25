@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operasion_ex.c                                     :+:      :+:    :+:   */
+/*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 20:03:20 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/19 20:12:58 by satushi          ###   ########.fr       */
+/*   Created: 2022/11/22 13:03:18 by satushi           #+#    #+#             */
+/*   Updated: 2022/11/22 13:04:16 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    adda_endoflist(t_staccontent **a_sub, t_staccontent **b_sub)
+void	push_swap_ra(t_staccontent **a)
 {
-    push_swap_pb(a_sub, b_sub);
-    push_swap_ra(a_sub);
+	*a = (*a)->next;
 }
 
-void    addb_endoflist(t_staccontent **a_sub, t_staccontent **b_sub)
+void	push_swap_rb(t_staccontent **b)
 {
-    push_swap_pa(a_sub, b_sub);
-    push_swap_rb(a_sub);
+	*b = (*b)->next;
+}
+
+void	push_swap_rr(t_staccontent **a, t_staccontent **b)
+{
+	*a = (*a)->next;
+	*b = (*b)->next;
 }
