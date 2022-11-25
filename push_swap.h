@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/23 23:19:07 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/25 21:47:33 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,28 @@ typedef struct LISinfo
 int		ft_atoi(const char *str);
 size_t	grasp_listlen(t_staccontent **sublist);
 int		mediam(t_staccontent **sublist);
-//void	pushfunc(t_staccontent **pushed, t_staccontent **push);
-void	pa(t_staccontent **a, t_staccontent **b);
-void	pb(t_staccontent **a, t_staccontent **b);
+
+//quicksortfunc
 void	quicksort_firststep(t_staccontent **a, t_staccontent **b);
 void	quicksort_main(t_staccontent **a, t_staccontent **b);
+
+//reverserotation
+void	push_swap_rra(t_staccontent **a);
+void	push_swap_rrb(t_staccontent **b);
+void	push_swap_rrr(t_staccontent **a, t_staccontent **b)
+
+//rotation
+void	push_swap_ra(t_staccontent **a);
+void	push_swap_rb(t_staccontent **b);
+void	push_swap_rr(t_staccontent **a, t_staccontent **b)
+
+//swap
+void	push_swap_sa(t_staccontent **a);
+void	push_swap_sb(t_staccontent **b);
+void	push_swap_ss(t_staccontent **a,t_staccontent **b);
+
+//push
+void	pa(t_staccontent **a, t_staccontent **b);
+void	pb(t_staccontent **a, t_staccontent **b);
 
 #endif
