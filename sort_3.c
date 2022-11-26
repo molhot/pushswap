@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:33:46 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/25 22:39:52 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/26 18:45:18 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void patt_threenum(t_staccontent **list)
         push_swap_ra(list);
         push_swap_sa(list);
     }
-    if (f_num > s_num && t_num > s_num)
+    if (t_num > s_num && f_num > t_num)
         push_swap_ra(list);
     if (f_num > s_num && t_num > f_num)
         push_swap_sa(list);

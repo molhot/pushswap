@@ -6,7 +6,7 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 21:05:48 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 18:32:30 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/26 20:51:15 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	quicksort_firststep(t_staccontent **a, t_staccontent **b)
 	size_t counter;
 
 	stack_mediam_a = mediam(a);
-	printf("%d\n", stack_mediam_a);
 	if ((*a)->num <= stack_mediam_a)
 		pa(a, b);
 	counter = grasp_listlen(a);
@@ -54,7 +53,6 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 	size_t b_len;
 
 	b_mediamnum = mediam(b);
-	printf("quicksort b to a is %d\n\n",b_mediamnum);
 	judgenum = 0;
 	if ((*b)->num >= b_mediamnum)
 	{
@@ -108,20 +106,37 @@ void over_3_func(t_staccontent **a, t_staccontent **b)
 
 bool wedge_checker(t_staccontent **sublist)
 {
-	t_staccontent **sublist_alt;
 	size_t listlen;
+	bool	judge;
 
-	sublist_alt = sublist;
 	listlen = grasp_listlen(sublist);
-	printf("listlen is %ld",listlen);
+	judge = false;
 	while (listlen != 0)
 	{
-		if ((*sublist_alt)->wedge == true)
-			return true;
-		*sublist_alt = (*sublist_alt)->next;
+		if ((*sublist)->wedge == true)
+			judge = true;
+		*sublist = (*sublist)->next;
 		listlen--;
 	}
-	return false;
+	return judge;
+}
+
+void quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
+{
+	////////////////////////
+	// t_staccontent **a_alt;
+	// //t_staccontent **b_alt;
+	// //t_staccontent *b_node;
+	// t_staccontent *a_node;
+	///////////////////////
+
+	while(1)
+	{
+		insert_towedge(a, b);
+		over_3_func(a, b);
+		if (wedge_checker(a) == false)
+			return ;
+	}
 }
 
 void quicksort_main(t_staccontent **a, t_staccontent **b)
@@ -138,47 +153,16 @@ void quicksort_main(t_staccontent **a, t_staccontent **b)
 	quicksort_firststep(a, b);
 	over_3_func(a, b);
 
-
-	// over_3_func(a, b);
-	// insert_towedge(a, b);
-	// over_3_func(a, b);
-	// insert_towedge(a, b);
-	// over_3_func(a, b);
-	// insert_towedge(a, b);
-	// over_3_func(a, b);
-	// insert_towedge(a, b);
-	// over_3_func(a, b);
-	// insert_towedge(a, b);
-	// over_3_func(a, b);
-
-	printf("\n\n------------------------------\n\n");
-
-	while (wedge_checker(a) != false)
-	{
-		if (wedge_checker(a) == false)
-			return ;
-		insert_towedge(a, b);
-		over_3_func(a, b);
-	}
-
-	printf("\n\n------------------------------\n\n");
-
+	if (wedge_checker(a) == true)
+		quicksort_dividearrange(a, b);
+	
 	quicksort_secondstep(a, b);
-
-	printf("\n\n------------------------------\n\n");
-
-	// while (wedge_checker(a) != false)
-	// {
-	// 	over_3_func(a, b);
-	// 	if (wedge_checker(a) == false)
-	// 		return ;
-	// 	insert_towedge(a, b);
-	// }
-
 	over_3_func(a, b);
-	//insert_towedge(a, b);
-	//over_3_func(a, b);
 
+	if (wedge_checker(a) == true)
+		quicksort_dividearrange(a, b);
+
+	//////////////////////////////////////
 
 	a_alt = a;
 	//b_alt = b;
@@ -196,7 +180,27 @@ void quicksort_main(t_staccontent **a, t_staccontent **b)
 	// 	b_node = b_node->next;
 	// }
 	printf("\n@@ here is test space @@\n\n");
+	
+	// printf("\n\nthis is sentinel zone \n\n");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// a_alt = a;
 	// //b_alt = b;
