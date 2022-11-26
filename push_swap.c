@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/25 22:35:14 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/26 05:14:32 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	insert_info_tolist(int subnum, t_staccontent *nowaddr, int n, int last, t_s
 	nowaddr->next->prev = nowaddr;
 	nowaddr->num = subnum;
 	nowaddr->wedge = false;
+	nowaddr->sorted = false;
 }
 
 t_staccontent **insertelem_tostack(int counter, char **numstr)
@@ -75,17 +76,17 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 
 int	main(int argc, char **argv)
 {
-	//int i = 0;
-	//t_staccontent *node;
+	int i = 0;
+	t_staccontent *node;
 	t_staccontent **a;
 
 	a = push_swap(argc, argv);
-	// node = (*a);
-	// while(i != 12)
-	// {
-	// 	printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
-	// 	node = node->next;
-	// 	i = i + 1;
-	// }
+	node = (*a);
+	while(i != 12)
+	{
+		//printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+		node = node->next;
+		i = i + 1;
+	}
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/25 22:38:30 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/26 17:23:09 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct stac
 {
 	int		num;
 	bool	wedge;
+	bool	sorted;
 	struct stac	*prev;
 	struct stac	*next;
 }t_staccontent;
@@ -47,13 +48,18 @@ int		mediam(t_staccontent **sublist);
 //quicksortfunc
 void	quicksort_firststep(t_staccontent **a, t_staccontent **b);
 void	quicksort_main(t_staccontent **a, t_staccontent **b);
+void	over_3_func(t_staccontent **a, t_staccontent **b);
+void	insert_towedge(t_staccontent **a, t_staccontent **b);
+void	quicksort_secondstep(t_staccontent **a, t_staccontent **b);
 
 //reverserotation
+void 	reversrotation(t_staccontent **subject);
 void	push_swap_rra(t_staccontent **a);
 void	push_swap_rrb(t_staccontent **b);
 void	push_swap_rrr(t_staccontent **a, t_staccontent **b);
 
 //rotation
+void	rotation(t_staccontent **sub);
 void	push_swap_ra(t_staccontent **a);
 void	push_swap_rb(t_staccontent **b);
 void	push_swap_rr(t_staccontent **a, t_staccontent **b);

@@ -6,40 +6,40 @@
 /*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:52:05 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/21 23:13:36 by satushi          ###   ########.fr       */
+/*   Updated: 2022/11/26 04:11:46 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	swap(t_staccontent **sub)
+{
+	t_staccontent *old;
+	t_staccontent *new;
+	t_staccontent *tmp;
+
+	old = *sub;
+	new = (*sub)->next;
+	tmp = (*sub)->prev;
+	if (old == tmp)
+		return ;
+	tmp->next = new;
+	old->next = new->next;
+	old->prev = new;
+	new->prev = tmp;
+	new->next = old;
+	old->next->prev = old;
+	*sub = new;
+}
+
 void	push_swap_sa(t_staccontent **a)
 {
-	int tmp;
-	t_staccontent *first;
-	t_staccontent *second;
-
-	if((*a)->next == *a)
-		return ;
-	first = *a;
-	tmp = first->num;
-	second = first->next;
-	first->num = second->num;
-	second->num = tmp;
+	swap(a);
 }
 
 void	push_swap_sb(t_staccontent **b)
 {
-	int tmp;
-	t_staccontent *first;
-	t_staccontent *second;
-
-	if((*b)->next == *b)
-		return ;
-	first = *b;
-	tmp = first->num;
-	second = first->next;
-	first->num = second->num;
-	second->num = tmp;
+	swap(b);
 }
 
 void	push_swap_ss(t_staccontent **a,t_staccontent **b)
