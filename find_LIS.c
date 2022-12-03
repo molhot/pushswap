@@ -42,7 +42,7 @@ t_lisinfo	*find_lis(t_staccontent **subjectlist)
 {
 	t_staccontent	*sentinel;
 	size_t			lislentmp;
-	t_lisinfo			*lisinfolist;
+	t_lisinfo		*lisinfolist;
 
 	lisinfolist = ready_lislist();
 	lisinfolist->lislen = 1;

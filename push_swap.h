@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 17:23:09 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 15:25:15 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,11 @@ void	pb(t_staccontent **a, t_staccontent **b);
 //sort min num ex 3 or 2
 void	patt_twonum(t_staccontent **list);
 void	patt_threenum(t_staccontent **list);
+
+//quiclsortfunc
+void	over_3_func(t_staccontent **a, t_staccontent **b);
+void	insert_towedge(t_staccontent **a, t_staccontent **b);
+void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b);
+bool	wedge_checker(t_staccontent **sublist);
 
 #endif

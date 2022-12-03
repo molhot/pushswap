@@ -1,21 +1,17 @@
-|0th is 1 and addr is 0x7fffbc999360 and node true or not is 0 and sorted is 1|
-|1th is 2 and addr is 0x7fffbc999440 and node true or not is 0 and sorted is 1|
-|2th is 5 and addr is 0x7fffbc9992e0 and node true or not is 0 and sorted is 1|
-|3th is 6 and addr is 0x7fffbc9993a0 and node true or not is 0 and sorted is 1|
-|4th is 8 and addr is 0x7fffbc999380 and node true or not is 0 and sorted is 1|
-|5th is 9 and addr is 0x7fffbc999400 and node true or not is 0 and sorted is 1|
-|6th is 11 and addr is 0x7fffbc9992c0 and node true or not is 0 and sorted is 1|
-|7th is 12 and addr is 0x7fffbc9993c0 and node true or not is 0 and sorted is 1|
-|8th is 100 and addr is 0x7fffbc999340 and node true or not is 0 and sorted is 1|
-|9th is 300 and addr is 0x7fffbc9993e0 and node true or not is 0 and sorted is 1|
-|10th is 400 and addr is 0x7fffbc999320 and node true or not is 0 and sorted is 1|
-|11th is 1 and addr is 0x7fffbc999360 and node true or not is 0 and sorted is 1|
-|12th is 2 and addr is 0x7fffbc999440 and node true or not is 0 and sorted is 1|
-|13th is 5 and addr is 0x7fffbc9992e0 and node true or not is 0 and sorted is 1|
-|14th is 6 and addr is 0x7fffbc9993a0 and node true or not is 0 and sorted is 1|
-|15th is 8 and addr is 0x7fffbc999380 and node true or not is 0 and sorted is 1|
-|16th is 9 and addr is 0x7fffbc999400 and node true or not is 0 and sorted is 1|
-|17th is 11 and addr is 0x7fffbc9992c0 and node true or not is 0 and sorted is 1|
-
-@@ here is test space @@
-
+sort_3.c: OK!
+push_swap_atoi.c: OK!
+push_swap.h: OK!
+find_lis.c: OK!
+quicksort_commonfunc.c: Error!
+Error: TOO_MANY_LINES       (line:  79, col:   1):	Function has more than 25 lines
+Error: BRACE_SHOULD_EOL     (line:  96, col:   1):	Expected newline after brace
+quicksort.c: OK!
+push_swap.c: OK!
+sort_2.c: OK!
+operation/rotation_reverse.c: OK!
+operation/push.c: Error!
+Error: TOO_MANY_LINES       (line:  47, col:   1):	Function has more than 25 lines
+operation/rotation.c: OK!
+operation/swap.c: Error!
+Error: TOO_MANY_VARS_FUNC   (line:  52, col:   1):	Too many variables declarations in a function
+catch_basiclistinfo/grasp_basicinfo.c: OK!
