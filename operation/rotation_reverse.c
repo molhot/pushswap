@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotation_reverse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:04:20 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 04:19:03 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 19:57:10 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,18 @@ void	reversrotation(t_staccontent **subject)
 void	push_swap_rra(t_staccontent **a)
 {
 	*a = (*a)->prev;
+	showchar("rra\n");
 }
 
 void	push_swap_rrb(t_staccontent **b)
 {
 	*b = (*b)->prev;
+	showchar("rrb\n");
 }
 
 void	push_swap_rrr(t_staccontent **a, t_staccontent **b)
 {
 	*a = (*a)->prev;
 	*b = (*b)->prev;
+	showchar("rrr\n");
 }

@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotation.c                                         :+:      :+:    :+:   */
+/*   showchar.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/22 13:03:18 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/03 19:56:51 by satushi          ###   ########.fr       */
+/*   Created: 2022/12/03 19:41:00 by satushi           #+#    #+#             */
+/*   Updated: 2022/12/03 20:02:47 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotation(t_staccontent **sub)
+size_t  obtain_strlen(char *sub)
 {
-	*sub = (*sub)->next;
+    size_t strlen;
+
+    strlen = 0;
+    while (sub[strlen] != 0)
+        strlen++;
+    strlen++;
+    return (strlen);
 }
 
-void	push_swap_ra(t_staccontent **a)
+void showchar(char *sub)
 {
-	rotation(a);
-	showchar("ra\n");
-}
+    size_t  char_len;
 
-void	push_swap_rb(t_staccontent **b)
-{
-	rotation(b);
-	showchar("rb\n");
-}
-
-void	push_swap_rr(t_staccontent **a, t_staccontent **b)
-{
-	*a = (*a)->next;
-	*b = (*b)->next;
-	showchar("rr\n");
+    char_len = obtain_strlen(sub);
+    write(1, sub, char_len);
 }

@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/03 18:32:39 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 20:01:03 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,8 @@ void	over_3_func(t_staccontent **a, t_staccontent **b);
 void	insert_towedge(t_staccontent **a, t_staccontent **b);
 void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b);
 bool	wedge_checker(t_staccontent **sublist);
+
+//write char
+void showchar(char *sub);
 
 #endif

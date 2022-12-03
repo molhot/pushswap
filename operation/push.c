@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:05:43 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/03 16:13:49 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 19:56:34 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,11 @@ static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 void	pa(t_staccontent **a, t_staccontent **b)
 {
 	pushfunc(b, a);
+	showchar("pa\n");
 }
 
 void	pb(t_staccontent **a, t_staccontent **b)
 {
 	pushfunc(a, b);
+	showchar("pb\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:40 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 05:14:32 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 20:04:51 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ int	main(int argc, char **argv)
 	node = (*a);
 	while (node->next != *a)
 	{
-		printf("|%d is %d and addr is %p and node true or not is %d|\n", \
-		i, node->num, node, node->wedge);
+		//printf("|%d is %d and addr is %p and node true or not is %d|\n",
+		//i, node->num, node, node->wedge);
 		node = node->next;
 	}
-	printf("|%d is %d and addr is %p and node true or not is %d|\n", \
-	i, node->num, node, node->wedge);
+	//printf("|%d is %d and addr is %p and node true or not is %d|\n",
+	//i, node->num, node, node->wedge);
 	return (1);
 }
