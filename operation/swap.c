@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:52:05 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 04:11:46 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 16:19:19 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	push_swap_ss(t_staccontent **a, t_staccontent **b)
 {
 	int				a_tmp;
 	int				b_tmp;
-	t_staccontent	*a_first;
-	t_staccontent	*b_first;
 	t_staccontent	*a_second;
 	t_staccontent	*b_second;
 
@@ -59,14 +57,12 @@ void	push_swap_ss(t_staccontent **a, t_staccontent **b)
 			push_swap_sa(b);
 		return ;
 	}
-	a_first = *a;
-	a_tmp = a_first->num;
-	b_first = *b;
-	b_tmp = b_first->num;
-	a_second = a_first->next;
-	b_second = b_first->next;
-	a_first->num = a_second->num;
-	b_first->num = b_second->num;
+	a_tmp = (*a)->num;
+	b_tmp = (*b)->num;
+	a_second = (*a)->next;
+	b_second = (*b)->next;
+	(*a)->num = a_second->num;
+	(*b)->num = b_second->num;
 	a_second->num = a_tmp;
 	b_second->num = b_tmp;
 }

@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satushi <sakata19991214@gmail.com>         +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:05:43 by satushi           #+#    #+#             */
-/*   Updated: 2022/11/26 05:52:26 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 16:13:49 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	push_subfunc(t_staccontent **push, \
+t_staccontent *newcontent, t_staccontent **inserted)
+{
+	newcontent->num = (*push)->num;
+	newcontent->next = (*inserted);
+	newcontent->prev = (*inserted)->prev;
+	(*inserted)->prev = newcontent;
+	(*inserted)->prev->prev->next = newcontent;
+	*push = (*push)->next;
+	*inserted = newcontent;
+}
 
 static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 {
@@ -34,13 +46,7 @@ static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 		(*push)->prev->next = (*push)->next;
 		(*push)->next->prev = (*push)->prev;
 	}
-	newcontent->num = (*push)->num;
-	newcontent->next = (*inserted);
-	newcontent->prev = (*inserted)->prev;
-	(*inserted)->prev = newcontent;
-	(*inserted)->prev->prev->next = newcontent;
-	*push = (*push)->next;
-	*inserted = newcontent;
+	push_subfunc(push, newcontent, inserted);
 	if (pushlen == 1)
 		*push = NULL;
 	free(freeaddr);
