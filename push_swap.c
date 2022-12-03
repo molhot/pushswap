@@ -28,7 +28,7 @@ t_staccontent	**list_initialization(void)
 	return (subject_list);
 }
 
-void	insert_info_tolist(int subnum, t_staccontent *nowaddr, \
+void	insert_info_tolist(t_staccontent *nowaddr, \
 int n, int last, t_staccontent *f_addr)
 {
 	if (n == last)
@@ -36,7 +36,6 @@ int n, int last, t_staccontent *f_addr)
 	else
 		nowaddr->next = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
 	nowaddr->next->prev = nowaddr;
-	nowaddr->num = subnum;
 	nowaddr->wedge = false;
 	nowaddr->sorted = false;
 }
@@ -54,7 +53,8 @@ t_staccontent	**insertelem_tostack(int counter, char **numstr)
 	i = 1;
 	while (i != counter)
 	{
-		insert_info_tolist(ft_atoi(numstr[i]), node, i, counter - 1, *a);
+		insert_info_tolist(node, i, counter - 1, *a);
+		node->num = ft_atoi(numstr[i]);
 		node = node->next;
 		i++;
 	}
@@ -74,20 +74,22 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 	return (a);
 }
 
-
 int	main(int argc, char **argv)
 {
-	int i = 0;
-	t_staccontent *node;
-	t_staccontent **a;
+	int				i;
+	t_staccontent	*node;
+	t_staccontent	**a;
 
+	i = 0;
 	a = push_swap(argc, argv);
 	node = (*a);
-	while(node->next != *a)
+	while (node->next != *a)
 	{
-		printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+		printf("|%d is %d and addr is %p and node true or not is %d|\n", \
+		i, node->num, node, node->wedge);
 		node = node->next;
 	}
-	printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+	printf("|%d is %d and addr is %p and node true or not is %d|\n", \
+	i, node->num, node, node->wedge);
 	return (1);
 }
