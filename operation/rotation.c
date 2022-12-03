@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void rotation(t_staccontent **sub)
+void	rotation(t_staccontent **sub)
 {
 	*sub = (*sub)->next;
 }

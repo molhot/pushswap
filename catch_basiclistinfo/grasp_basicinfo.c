@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-size_t grasp_listlen(t_staccontent **sublist)
+size_t	grasp_listlen(t_staccontent **sublist)
 {
 	t_staccontent	**sublist_alt;
 	t_staccontent	*node;
@@ -26,7 +26,7 @@ size_t grasp_listlen(t_staccontent **sublist)
 	while (node != *sublist_alt)
 	{
 		len++;
-		node =node->next;
+		node = node->next;
 	}
 	return (len);
 }
@@ -44,7 +44,7 @@ int	mediam(t_staccontent **sublist)
 	sum = node->num;
 	while (node != *sublist_alt)
 	{
-		node =node->next;
+		node = node->next;
 		sum += node->num;
 	}
 	return (sum / listlen);

@@ -14,13 +14,13 @@
 
 static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 {
-	t_staccontent 	*newcontent;
+	t_staccontent	*newcontent;
 	t_staccontent	*freeaddr;
-	size_t pushlen;
+	size_t			pushlen;
 
 	pushlen = grasp_listlen(push);
 	freeaddr = *push;
-	newcontent = (t_staccontent*)malloc(sizeof(t_staccontent) * 1);
+	newcontent = (t_staccontent *)malloc(sizeof(t_staccontent) * 1);
 	if (newcontent == NULL)
 		return ;
 	if (freeaddr->wedge)
@@ -41,7 +41,7 @@ static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 	(*inserted)->prev->prev->next = newcontent;
 	*push = (*push)->next;
 	*inserted = newcontent;
-	if(pushlen == 1)
+	if (pushlen == 1)
 		*push = NULL;
 	free(freeaddr);
 }

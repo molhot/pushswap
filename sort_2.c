@@ -12,14 +12,13 @@
 
 #include "push_swap.h"
 
-void    patt_twonum(t_staccontent **list)
+void	patt_twonum(t_staccontent **list)
 {
-    int f_num;
-    int s_num;
+	int	f_num;
+	int	s_num;
 
-    f_num = (*list)->num;
-    s_num = (*list)->next->num;
-
-    if (f_num > s_num)
-        push_swap_sa(list);
+	f_num = (*list)->num;
+	s_num = (*list)->next->num;
+	if (f_num > s_num)
+		push_swap_sa(list);
 }

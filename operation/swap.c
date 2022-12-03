@@ -14,9 +14,9 @@
 
 static void	swap(t_staccontent **sub)
 {
-	t_staccontent *old;
-	t_staccontent *new;
-	t_staccontent *tmp;
+	t_staccontent	*old;
+	t_staccontent	*new;
+	t_staccontent	*tmp;
 
 	old = *sub;
 	new = (*sub)->next;
@@ -42,20 +42,20 @@ void	push_swap_sb(t_staccontent **b)
 	swap(b);
 }
 
-void	push_swap_ss(t_staccontent **a,t_staccontent **b)
+void	push_swap_ss(t_staccontent **a, t_staccontent **b)
 {
-	int a_tmp;
-	int b_tmp;
-	t_staccontent *a_first;
-	t_staccontent *b_first;
-	t_staccontent *a_second;
-	t_staccontent *b_second;
+	int				a_tmp;
+	int				b_tmp;
+	t_staccontent	*a_first;
+	t_staccontent	*b_first;
+	t_staccontent	*a_second;
+	t_staccontent	*b_second;
 
-	if((*a)->next == *a || (*b)->next == *b)
+	if ((*a)->next == *a || (*b)->next == *b)
 	{
 		if ((*a)->next != *a)
 			push_swap_sa(a);
-		else if((*b)->next != *b)
+		else if ((*b)->next != *b)
 			push_swap_sa(b);
 		return ;
 	}

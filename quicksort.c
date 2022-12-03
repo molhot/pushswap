@@ -14,14 +14,14 @@
 
 void	quicksort_firststep(t_staccontent **a, t_staccontent **b)
 {
-	int	stack_mediam_a;
-	size_t counter;
+	int			stack_mediam_a;
+	size_t		counter;
 
 	stack_mediam_a = mediam(a);
 	if ((*a)->num <= stack_mediam_a)
 		pa(a, b);
 	counter = grasp_listlen(a);
-	while(counter != 0)
+	while (counter != 0)
 	{
 		if ((*a)->num <= stack_mediam_a)
 			pa(a, b);
@@ -37,20 +37,20 @@ void	quicksort_secondstep(t_staccontent **a, t_staccontent **b)
 		pa(a, b);
 }
 
-void insert_towedge(t_staccontent **a, t_staccontent **b)
+void	insert_towedge(t_staccontent **a, t_staccontent **b)
 {
 	while ((*a)->wedge != true)
 	{
 		pa(a, b);
 	}
-	pa(a,b);
+	pa(a, b);
 }
 
 void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 {
-	int b_mediamnum;
-	int	judgenum;
-	size_t b_len;
+	int		b_mediamnum;
+	int		judgenum;
+	size_t	b_len;
 
 	b_mediamnum = mediam(b);
 	judgenum = 0;
@@ -61,7 +61,7 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 		pb(a, b);
 	}
 	b_len = grasp_listlen(b);
-	while(b_len != 0)
+	while (b_len != 0)
 	{
 		if ((*b)->num >= b_mediamnum)
 		{
@@ -78,7 +78,7 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 	}
 }
 
-void over_3_func(t_staccontent **a, t_staccontent **b)
+void	over_3_func(t_staccontent **a, t_staccontent **b)
 {
 	size_t	b_len;
 
@@ -88,7 +88,6 @@ void over_3_func(t_staccontent **a, t_staccontent **b)
 		quicksort_b_to_a(a, b);
 		b_len = grasp_listlen(b);
 	}
-
 	if (b_len == 3)
 		patt_threenum(b);
 	else if (b_len == 2)
@@ -104,10 +103,10 @@ void over_3_func(t_staccontent **a, t_staccontent **b)
 	}
 }
 
-bool wedge_checker(t_staccontent **sublist)
+bool	wedge_checker(t_staccontent **sublist)
 {
-	size_t listlen;
-	bool	judge;
+	size_t		listlen;
+	bool		judge;
 
 	listlen = grasp_listlen(sublist);
 	judge = false;
@@ -118,12 +117,12 @@ bool wedge_checker(t_staccontent **sublist)
 		*sublist = (*sublist)->next;
 		listlen--;
 	}
-	return judge;
+	return (judge);
 }
 
-void quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
+void	quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 {
-	while(1)
+	while (1)
 	{
 		insert_towedge(a, b);
 		over_3_func(a, b);
@@ -132,71 +131,14 @@ void quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 	}
 }
 
-void quicksort_main(t_staccontent **a, t_staccontent **b)
+void	quicksort_main(t_staccontent **a, t_staccontent **b)
 {
 	quicksort_firststep(a, b);
 	over_3_func(a, b);
-
 	if (wedge_checker(a) == true)
 		quicksort_dividearrange(a, b);
-	
 	quicksort_secondstep(a, b);
 	over_3_func(a, b);
-
 	if (wedge_checker(a) == true)
 		quicksort_dividearrange(a, b);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// a_alt = a;
-	// //b_alt = b;
-	// a_node = *a_alt;
-	// //b_node = *b_alt;
-	// for(int i=0;i<13;i++)
-	// {
-	// 	printf("|%dth is %d and addr is %p and node true or not is %d and sorted is %d|\n",i, a_node->num, a_node, a_node->wedge, a_node->sorted);
-	// 	a_node = a_node->next;
-	// }
-	// // printf("\n@@ next is b's test @@\n\n");
-	// // for(int i=0;i<13;i++)
-	// // {
-	// // 	printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, b_node->num, b_node, b_node->wedge);
-	// // 	b_node = b_node->next;
-	// // }
-	// printf("\n@@ here is test space @@\n\n");
-
-///////////////////////
-	// a_alt = a;
-	// b_alt = b;
-	// a_node = *a_alt;
-	// b_node = *b_alt;
-	// for(int i=0;i<13;i++)
-	// {
-	// 	printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, a_node->num, a_node, a_node->wedge);
-	// 	a_node = a_node->next;
-	// }
-	// printf("\n@@ next is b's test @@\n\n");
-	// for(int i=0;i<13;i++)
-	// {
-	// 	printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, b_node->num, b_node, b_node->wedge);
-	// 	b_node = b_node->next;
-	// }
-	// printf("\n@@ here is test space @@\n\n");
-//$$$$$$$$$$$$$$$$$$$$$$$//

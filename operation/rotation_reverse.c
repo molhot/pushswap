@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void reversrotation(t_staccontent **subject)
+void	reversrotation(t_staccontent **subject)
 {
 	t_staccontent	*head;
 	t_staccontent	*tail;

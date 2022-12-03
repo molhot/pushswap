@@ -12,54 +12,56 @@
 
 #include "push_swap.h"
 
-static	lisinfo	*ready_LISlist()
+static	t_lisinfo	*ready_lislist(void)
 {
-	lisinfo	*lislist;
+	t_lisinfo	*lislist;
 
-	lislist = (lisinfo *)malloc(sizeof(lisinfo) * 1);
+	lislist = (t_lisinfo *)malloc(sizeof(t_lisinfo) * 1);
 	return (lislist);
 }
 
-static	void	inputLISf_addr(lisinfo *sublislist, t_staccontent **subjectsearchlist)
+static	void	inputlisf_addr\
+(t_lisinfo *sublist, t_staccontent **serchlist)
 {
 	size_t			counter;
 	t_staccontent	*serchedlist;
 
-	counter = sublislist->LISlen;
-	serchedlist = *subjectsearchlist;
-	while (serchedlist != sublislist->LISe_addr)
+	counter = sublist->lislen;
+	serchedlist = *serchlist;
+	while (serchedlist != sublist->lisf_addr)
 		serchedlist = serchedlist->next;
 	while (counter != 1)
 	{
 		serchedlist = serchedlist->prev;
 		counter--;
 	}
-	sublislist->LISf_addr = serchedlist;
+	sublist->lisf_addr = serchedlist;
 }
 
-lisinfo	*find_LIS(t_staccontent **subjectlist)
+t_lisinfo	*find_lis(t_staccontent **subjectlist)
 {
-    t_staccontent   *sentinel;
-    size_t			LIS_len_tmp;
-	lisinfo			*LISinfolist;
+	t_staccontent	*sentinel;
+	size_t			lislentmp;
+	t_lisinfo			*lisinfolist;
 
-    LISinfolist = ready_LISlist();
-	LISinfolist->LISlen = 1;
-	LIS_len_tmp = 1;
+	lisinfolist = ready_lislist();
+	lisinfolist->lislen = 1;
+	lislentmp = 1;
 	sentinel = (*subjectlist)->next;
 	while (sentinel != *subjectlist)
 	{
-		if(sentinel->prev->num < sentinel->num)
-			LIS_len_tmp = LIS_len_tmp + 1;
-		else if(sentinel->prev->num > sentinel->num && LIS_len_tmp <= LISinfolist->LISlen)
-			LIS_len_tmp = 1;
-		if(LIS_len_tmp > LISinfolist->LISlen)
+		if (sentinel->prev->num < sentinel->num)
+			lislentmp = lislentmp + 1;
+		else if (sentinel->prev->num > sentinel->num && \
+		lislentmp <= lisinfolist->lislen)
+			lislentmp = 1;
+		if (lislentmp > lisinfolist->lislen)
 		{
-			LISinfolist->LISlen = LIS_len_tmp;
-			LISinfolist->LISe_addr = sentinel;
+			lisinfolist->lislen = lislentmp;
+			lisinfolist->lise_addr = sentinel;
 		}
 		sentinel = sentinel->next;
 	}
-	inputLISf_addr(LISinfolist, subjectlist);
-	return (LISinfolist);
+	inputlisf_addr(lisinfolist, subjectlist);
+	return (lisinfolist);
 }

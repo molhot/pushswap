@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_staccontent	**list_initialization()
+t_staccontent	**list_initialization(void)
 {
 	t_staccontent	**subject_list;
 
@@ -28,7 +28,8 @@ t_staccontent	**list_initialization()
 	return (subject_list);
 }
 
-void	insert_info_tolist(int subnum, t_staccontent *nowaddr, int n, int last, t_staccontent *f_addr)
+void	insert_info_tolist(int subnum, t_staccontent *nowaddr, \
+int n, int last, t_staccontent *f_addr)
 {
 	if (n == last)
 		nowaddr->next = f_addr;
@@ -40,7 +41,7 @@ void	insert_info_tolist(int subnum, t_staccontent *nowaddr, int n, int last, t_s
 	nowaddr->sorted = false;
 }
 
-t_staccontent **insertelem_tostack(int counter, char **numstr)
+t_staccontent	**insertelem_tostack(int counter, char **numstr)
 {
 	t_staccontent	**a;
 	t_staccontent	*node;
@@ -51,13 +52,13 @@ t_staccontent **insertelem_tostack(int counter, char **numstr)
 		return (NULL);
 	node = *a;
 	i = 1;
-	while(i != counter)
+	while (i != counter)
 	{
 		insert_info_tolist(ft_atoi(numstr[i]), node, i, counter - 1, *a);
 		node = node->next;
 		i++;
 	}
-	return a;
+	return (a);
 }
 
 t_staccontent	**push_swap(int arg_num, char **num_ch)
@@ -69,10 +70,10 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 	b = list_initialization();
 	free(*b);
 	(*b) = NULL;
-
-	quicksort_main(a,b);
-	return a;
+	quicksort_main(a, b);
+	return (a);
 }
+
 
 int	main(int argc, char **argv)
 {

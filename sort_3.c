@@ -10,29 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void patt_threenum(t_staccontent **list)
+void	patt_threenum(t_staccontent **list)
 {
-    const int f_num = (*list)->num;
-    const int s_num = (*list)->next->num;
-    const int t_num = (*list)->next->next->num;
+	int	f_num;
+	int	s_num;
+	int	t_num;
 
-    if (f_num > s_num && s_num > t_num)
-    {
-        push_swap_ra(list);
-        push_swap_sa(list);
-    }
-    if (t_num > s_num && f_num > t_num)
-        push_swap_ra(list);
-    if (f_num > s_num && t_num > f_num)
-        push_swap_sa(list);
-    if (s_num > f_num && f_num > t_num)
-        push_swap_rra(list);
-    if (s_num > t_num && t_num > f_num)
-    {
-        push_swap_ra(list);
-        push_swap_sa(list);
-        push_swap_rra(list);
-    }
+	f_num = (*list)->num;
+	s_num = (*list)->next->num;
+	t_num = (*list)->next->next->num;
+	if (f_num > s_num && s_num > t_num)
+	{
+		push_swap_ra(list);
+		push_swap_sa(list);
+	}
+	if (t_num > s_num && f_num > t_num)
+		push_swap_ra(list);
+	if (f_num > s_num && t_num > f_num)
+		push_swap_sa(list);
+	if (s_num > f_num && f_num > t_num)
+		push_swap_rra(list);
+	if (s_num > t_num && t_num > f_num)
+	{
+		push_swap_ra(list);
+		push_swap_sa(list);
+		push_swap_rra(list);
+	}
 }
