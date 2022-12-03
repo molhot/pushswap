@@ -123,13 +123,6 @@ bool wedge_checker(t_staccontent **sublist)
 
 void quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 {
-	////////////////////////
-	// t_staccontent **a_alt;
-	// //t_staccontent **b_alt;
-	// //t_staccontent *b_node;
-	// t_staccontent *a_node;
-	///////////////////////
-
 	while(1)
 	{
 		insert_towedge(a, b);
@@ -141,15 +134,6 @@ void quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 
 void quicksort_main(t_staccontent **a, t_staccontent **b)
 {
-	//size_t	b_len;
-
-	////////////////////////
-	t_staccontent **a_alt;
-	//t_staccontent **b_alt;
-	//t_staccontent *b_node;
-	t_staccontent *a_node;
-	///////////////////////
-
 	quicksort_firststep(a, b);
 	over_3_func(a, b);
 
@@ -161,27 +145,6 @@ void quicksort_main(t_staccontent **a, t_staccontent **b)
 
 	if (wedge_checker(a) == true)
 		quicksort_dividearrange(a, b);
-
-	//////////////////////////////////////
-
-	a_alt = a;
-	//b_alt = b;
-	a_node = *a_alt;
-	//b_node = *b_alt;
-	for(int i=0;i<18;i++)
-	{
-		printf("|%dth is %d and addr is %p and node true or not is %d and sorted is %d|\n",i, a_node->num, a_node, a_node->wedge, a_node->sorted);
-		a_node = a_node->next;
-	}
-	// printf("\n@@ next is b's test @@\n\n");
-	// for(int i=0;i<13;i++)
-	// {
-	// 	printf("|%dth is %d and addr is %p and node true or not is %d|\n",i, b_node->num, b_node, b_node->wedge);
-	// 	b_node = b_node->next;
-	// }
-	printf("\n@@ here is test space @@\n\n");
-	
-	// printf("\n\nthis is sentinel zone \n\n");
 }
 
 

@@ -82,11 +82,11 @@ int	main(int argc, char **argv)
 
 	a = push_swap(argc, argv);
 	node = (*a);
-	while(i != 12)
+	while(node->next != *a)
 	{
-		//printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
+		printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
 		node = node->next;
-		i = i + 1;
 	}
+	printf("|%d is %d and addr is %p and node true or not is %d|\n",i, node->num, node, node->wedge);
 	return (1);
 }
