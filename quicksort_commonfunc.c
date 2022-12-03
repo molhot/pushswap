@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:19:20 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/03 15:34:05 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 18:32:21 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,22 @@ void	insert_towedge(t_staccontent **a, t_staccontent **b)
 	pa(a, b);
 }
 
+void	quicksort_subfunc(int jd, int b_med, \
+t_staccontent **a, t_staccontent **b)
+{
+	if ((*b)->num >= b_med)
+	{
+		if (jd == 0)
+		{
+			(*b)->wedge = true;
+			jd++;
+		}
+		pb(a, b);
+	}
+	else
+		push_swap_rb(b);
+}
+
 void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 {
 	int		b_mediamnum;
@@ -63,17 +79,7 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 	b_len = grasp_listlen(b);
 	while (b_len != 0)
 	{
-		if ((*b)->num >= b_mediamnum)
-		{
-			if (judgenum == 0)
-			{
-				(*b)->wedge = true;
-				judgenum++;
-			}
-			pb(a, b);
-		}
-		else
-			push_swap_rb(b);
+		quicksort_subfunc(judgenum, b_mediamnum, a, b);
 		b_len--;
 	}
 }

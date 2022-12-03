@@ -6,7 +6,7 @@
 /*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 21:18:22 by satushi           #+#    #+#             */
-/*   Updated: 2022/12/03 15:25:15 by satushi          ###   ########.fr       */
+/*   Updated: 2022/12/03 18:32:39 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	quicksort_main(t_staccontent **a, t_staccontent **b);
 void	over_3_func(t_staccontent **a, t_staccontent **b);
 void	insert_towedge(t_staccontent **a, t_staccontent **b);
 void	quicksort_secondstep(t_staccontent **a, t_staccontent **b);
+void	quicksort_subfunc(int jd, int b_med, \
+t_staccontent **a, t_staccontent **b);
 
 //reverserotation
 void	reversrotation(t_staccontent **subject);
