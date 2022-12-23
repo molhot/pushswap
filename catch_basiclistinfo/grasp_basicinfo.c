@@ -47,5 +47,5 @@ int	mediam(t_staccontent **sublist)
 		node = node->next;
 		sum += node->num;
 	}
-	return (sum / listlen);
+	return (sum / (int)listlen);
 }
