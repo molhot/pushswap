@@ -46,15 +46,15 @@ void	insert_towedge(t_staccontent **a, t_staccontent **b)
 	pa(a, b);
 }
 
-void	quicksort_subfunc(int jd, int b_med, \
+void	quicksort_subfunc(int *jd, int b_med, \
 t_staccontent **a, t_staccontent **b)
 {
 	if ((*b)->num >= b_med)
 	{
-		if (jd == 0)
+		if (*jd == 0)
 		{
 			(*b)->wedge = true;
-			jd++;
+			*jd = *jd + 1;
 		}
 		pb(a, b);
 	}
@@ -79,7 +79,7 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 	b_len = grasp_listlen(b);
 	while (b_len != 0)
 	{
-		quicksort_subfunc(judgenum, b_mediamnum, a, b);
+		quicksort_subfunc(&judgenum, b_mediamnum, a, b);
 		b_len--;
 	}
 }

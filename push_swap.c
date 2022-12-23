@@ -76,20 +76,19 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 
 int	main(int argc, char **argv)
 {
-	int				i;
 	t_staccontent	*node;
 	t_staccontent	**a;
+	int				i;
 
 	i = 0;
 	a = push_swap(argc, argv);
 	node = (*a);
 	while (node->next != *a)
 	{
-		//printf("|%d is %d and addr is %p and node true or not is %d|\n",
-		//i, node->num, node, node->wedge);
+		printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
 		node = node->next;
+		i++;
 	}
-	//printf("|%d is %d and addr is %p and node true or not is %d|\n",
-	//i, node->num, node, node->wedge);
+	printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
 	return (1);
 }

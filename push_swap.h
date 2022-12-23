@@ -51,7 +51,7 @@ void	quicksort_main(t_staccontent **a, t_staccontent **b);
 void	over_3_func(t_staccontent **a, t_staccontent **b);
 void	insert_towedge(t_staccontent **a, t_staccontent **b);
 void	quicksort_secondstep(t_staccontent **a, t_staccontent **b);
-void	quicksort_subfunc(int jd, int b_med, \
+void	quicksort_subfunc(int *jd, int b_med, \
 t_staccontent **a, t_staccontent **b);
 
 //reverserotation
@@ -72,6 +72,7 @@ void	push_swap_sb(t_staccontent **b);
 void	push_swap_ss(t_staccontent **a, t_staccontent **b);
 
 //push
+void	pushfunc(t_staccontent **inserted, t_staccontent **push);
 void	pa(t_staccontent **a, t_staccontent **b);
 void	pb(t_staccontent **a, t_staccontent **b);
 

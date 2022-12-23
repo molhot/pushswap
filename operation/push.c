@@ -24,7 +24,7 @@ t_staccontent *newcontent, t_staccontent **inserted)
 	*inserted = newcontent;
 }
 
-static	void	pushfunc(t_staccontent **inserted, t_staccontent **push)
+void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 {
 	t_staccontent	*newcontent;
 	t_staccontent	*freeaddr;
