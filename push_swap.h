@@ -89,4 +89,7 @@ bool	wedge_checker(t_staccontent **sublist);
 //write char
 void showchar(char *sub);
 
+//input value checker
+bool duplication_checker(t_staccontent **a);
+
 #endif

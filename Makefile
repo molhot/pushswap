@@ -3,6 +3,7 @@ NAME = pushswap.a
 SRCS = find_LIS.c push_swap_atoi.c push_swap.c catch_basiclistinfo/grasp_basicinfo.c\
 		operation/push.c operation/rotation_reverse.c operation/rotation.c operation/swap.c\
 		show_char/showchar.c\
+		inputvalue_checker.c\
 		operation/push.c quicksort.c sort_2.c sort_3.c quicksort_commonfunc.c
 
 OBJS = $(SRCS:.c=.o)

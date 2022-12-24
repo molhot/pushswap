@@ -91,13 +91,19 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 	t_staccontent	**a;
 	t_staccontent	**b;
 	bool			argment_letimacy;
+	bool			dupli_check;
 
-	//ここに引数を確認するためのものを入れる
+	if (arg_num == 1)
+		return (NULL);
 	argment_letimacy = argument_checker(arg_num, num_ch);
 	if (argment_letimacy == false)
 		return (NULL);
-	//---------------------------------
 	a = insertelem_tostack(arg_num, num_ch);
+	dupli_check = duplication_checker(a);
+	if (dupli_check == false)
+		return (false);
+	if ((*a)->next = (*a))
+		return (a);
 	b = list_initialization();
 	free(*b);
 	(*b) = NULL;
@@ -113,9 +119,14 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	a = push_swap(argc, argv);
-	if (a == NULL)
+	if (a == NULL && argc != 1)
 	{
 		printf("Error\n");
+		return (1);
+	}
+	else if (a == NULL && argc == 1)
+	{
+		printf("\n");
 		return (1);
 	}
 	node = (*a);
