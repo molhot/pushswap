@@ -61,11 +61,42 @@ t_staccontent	**insertelem_tostack(int counter, char **numstr)
 	return (a);
 }
 
+bool argument_checker(int arg_num, char **argument)
+{
+	int		char_num;
+	int		arg_counter;
+	char	subject;
+
+	char_num = 0;
+	arg_counter = 1;
+	while (arg_counter != arg_num)
+	{
+		while(argument[arg_counter][char_num] != '\0')
+		{
+			subject = argument[arg_counter][char_num];
+			if (char_num == 0 && ('0' > subject || '9' < subject) && subject != '-')
+				return (false);
+			else if (char_num != 0 && ('0' > subject || '9' < subject))
+				return (false);
+			char_num++;
+		}
+		arg_counter++;
+		char_num = 0;
+	}
+	return (true);
+}
+
 t_staccontent	**push_swap(int arg_num, char **num_ch)
 {
 	t_staccontent	**a;
 	t_staccontent	**b;
+	bool			argment_letimacy;
 
+	//ここに引数を確認するためのものを入れる
+	argment_letimacy = argument_checker(arg_num, num_ch);
+	if (argment_letimacy == false)
+		return (NULL);
+	//---------------------------------
 	a = insertelem_tostack(arg_num, num_ch);
 	b = list_initialization();
 	free(*b);
@@ -82,6 +113,11 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	a = push_swap(argc, argv);
+	if (a == NULL)
+	{
+		printf("Error\n");
+		return (1);
+	}
 	node = (*a);
 	while (node->next != *a)
 	{

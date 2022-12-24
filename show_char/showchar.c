@@ -30,3 +30,11 @@ void showchar(char *sub)
     char_len = obtain_strlen(sub);
     write(1, sub, char_len);
 }
+
+void error_show()
+{
+    char *error_message;
+
+    error_message = "Error\n";
+    write(1, error_message, 7);
+}
