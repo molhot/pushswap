@@ -102,7 +102,9 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 	dupli_check = duplication_checker(a);
 	if (dupli_check == false)
 		return (false);
-	if ((*a)->next = (*a))
+	if ((*a)->next == (*a))
+		return (a);
+	if (sortcheck(a) == true)
 		return (a);
 	b = list_initialization();
 	free(*b);

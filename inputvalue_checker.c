@@ -37,7 +37,7 @@
 // 	return (true);
 // }
 
-static bool dupli_or_not(int arrange_num, int *arrangement, t_staccontent *a)
+static bool dupli_or_not(int arrange_num, t_staccontent *a)
 {
     int             subject_num;
     int             i;
@@ -81,7 +81,7 @@ bool duplication_checker(t_staccontent **a)
     }
     node_arrangement[arrangement_num] = a_checked_node->num;
     a_checked_node = a_checked_node->next;
-    dupli = dupli_or_not(stac_len, node_arrangement, *a);
+    dupli = dupli_or_not(stac_len, *a);
     free(node_arrangement);
     return (dupli);
 }

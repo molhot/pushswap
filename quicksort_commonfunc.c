@@ -40,9 +40,7 @@ void	over_3_func(t_staccontent **a, t_staccontent **b)
 void	insert_towedge(t_staccontent **a, t_staccontent **b)
 {
 	while ((*a)->wedge != true)
-	{
 		pa(a, b);
-	}
 	pa(a, b);
 }
 

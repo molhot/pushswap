@@ -12,30 +12,51 @@
 
 #include "push_swap.h"
 
+// void	patt_threenum(t_staccontent **list)
+// {
+// 	int	f_num;
+// 	int	s_num;
+// 	int	t_num;
+
+// 	f_num = (*list)->num;
+// 	s_num = (*list)->next->num;
+// 	t_num = (*list)->next->next->num;
+// 	if (f_num > s_num && s_num > t_num)
+// 	{
+// 		push_swap_rb(list);
+// 		push_swap_sb(list);
+// 	}
+// 	if (t_num > s_num && f_num > t_num)
+// 		push_swap_rb(list);
+// 	if (f_num > s_num && t_num > f_num)
+// 		push_swap_sb(list);
+// 	if (s_num > f_num && f_num > t_num)
+// 		push_swap_rrb(list);
+// 	if (s_num > t_num && t_num > f_num)
+// 	{
+// 		push_swap_rb(list);
+// 		push_swap_sb(list);
+// 		push_swap_rrb(list);
+// 	}
+// }
+
 void	patt_threenum(t_staccontent **list)
 {
-	int	f_num;
-	int	s_num;
-	int	t_num;
-
-	f_num = (*list)->num;
-	s_num = (*list)->next->num;
-	t_num = (*list)->next->next->num;
-	if (f_num > s_num && s_num > t_num)
+	if ((*list)->num > (*list)->next->num && (*list)->next->num > (*list)->next->next->num)
 	{
-		push_swap_ra(list);
-		push_swap_sa(list);
+		push_swap_rb(list);
+		push_swap_sb(list);
 	}
-	if (t_num > s_num && f_num > t_num)
-		push_swap_ra(list);
-	if (f_num > s_num && t_num > f_num)
-		push_swap_sa(list);
-	if (s_num > f_num && f_num > t_num)
-		push_swap_rra(list);
-	if (s_num > t_num && t_num > f_num)
+	if ((*list)->next->next->num > (*list)->next->num && (*list)->num > (*list)->next->next->num)
+		push_swap_rb(list);
+	if ((*list)->num > (*list)->next->num && (*list)->next->next->num > (*list)->num)
+		push_swap_sb(list);
+	if ((*list)->next->num > (*list)->num && (*list)->num > (*list)->next->next->num)
+		push_swap_rrb(list);
+	if ((*list)->next->num > (*list)->next->next->num && (*list)->next->next->num > (*list)->num)
 	{
-		push_swap_ra(list);
-		push_swap_sa(list);
-		push_swap_rra(list);
+		push_swap_rb(list);
+		push_swap_sb(list);
+		push_swap_rrb(list);
 	}
 }

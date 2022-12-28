@@ -92,4 +92,7 @@ void showchar(char *sub);
 //input value checker
 bool duplication_checker(t_staccontent **a);
 
+//check sort
+bool sortcheck(t_staccontent **sublist);
+
 #endif
