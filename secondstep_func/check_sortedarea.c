@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_sortedarea.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:19:54 by user              #+#    #+#             */
-/*   Updated: 2022/12/29 16:29:13 by user             ###   ########.fr       */
+/*   Updated: 2022/12/29 21:13:42 by satushi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../push_swap.h"
 
-int check_sorted_in_list(t_staccontent **list);
+int check_sorted_in_list(t_staccontent **list)
 {
 	t_staccontent	*list_f;
 	t_staccontent	*node;
@@ -35,7 +35,7 @@ int check_sorted_in_list(t_staccontent **list);
 	counter = 0;
     node = list_f;
 	tmp_buff = node->num;
-	while (node->before->wedge != true)
+	while (node->prev->wedge != true)
 	{
 		node = node->next;
 		if (node->sorted != true)

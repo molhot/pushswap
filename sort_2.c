@@ -20,5 +20,5 @@ void	patt_twonum(t_staccontent **list)
 	f_num = (*list)->num;
 	s_num = (*list)->next->num;
 	if (f_num > s_num)
-		push_swap_sa(list);
+		push_swap_sb(list);
 }

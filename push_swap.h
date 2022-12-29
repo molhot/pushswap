@@ -87,12 +87,14 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b);
 bool	wedge_checker(t_staccontent **sublist);
 
 //write char
-void showchar(char *sub);
+void	showchar(char *sub);
 
 //input value checker
-bool duplication_checker(t_staccontent **a);
+bool	duplication_checker(t_staccontent **a);
 
 //check sort
-bool sortcheck(t_staccontent **sublist);
+bool	sortcheck(t_staccontent **sublist);
+int		check_sorted_in_list(t_staccontent **list);
+int		sorted_count(t_staccontent **list);
 
 #endif

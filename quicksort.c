@@ -44,6 +44,7 @@ void	quicksort_firststep(t_staccontent **a, t_staccontent **b)
 void	quicksort_secondstep(t_staccontent **a, t_staccontent **b)
 {
 	int			tmp_buf;
+	int			sorted_counter;
 
 	// while ((*a)->sorted != true)
 	// {
@@ -51,6 +52,15 @@ void	quicksort_secondstep(t_staccontent **a, t_staccontent **b)
 	// }
 	// 	ここも少し変えれるかもしれない
 	// aはソート済みで、的確に数の準場版がわかれば一部はaの中で完結する
+	sorted_counter = check_sorted_in_list(a);
+	if (sorted_counter != 0)
+	{
+		while (sorted_counter != 0)
+		{
+			(*a)->sorted = true;
+			push_swap_ra(a);
+		}
+	}
 	while ((*a)->sorted != true)
 	{
 		if (tmp_buf < (*a)->num)
@@ -63,6 +73,8 @@ void	quicksort_secondstep(t_staccontent **a, t_staccontent **b)
 
 void	quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 {
+	int counter;
+
 	while (1)
 	{
 		if (sortcheck(a) == true)
@@ -83,6 +95,15 @@ void	quicksort_dividearrange(t_staccontent **a, t_staccontent **b)
 			//ここをもう少し帰れそう
 			//wedgeまでの数の比較を行い、並んでいるところまではaの後ろに着ける
 			//2個とか3個ならここで処理してもよいかもしれない
+			counter = sorted_count(a);
+			while(counter != 0)
+			{
+				//printf("%s\n", "here is moved");
+				(*a)->wedge = false;
+				(*a)->sorted = true;
+				push_swap_ra(a);
+				counter--;
+			}
 			insert_towedge(a, b);
 			over_3_func(a, b);
 		}
@@ -101,19 +122,44 @@ void print_anode(t_staccontent **a)
 
 	while (node -> next != *a)
 	{
-		printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+		//printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
 		i++;
 		node = node->next;
 	}
-	printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+	//printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
 	*a = first;
 }
 
 void	quicksort_main(t_staccontent **a, t_staccontent **b)
 {
+	if (grasp_listlen(a) == 2)
+	{
+		push_swap_sa(a);
+		return ;
+	}
+	if (grasp_listlen(a) == 3)
+	{
+		if ((*a)->num > (*a)->next->num && (*a)->next->num > (*a)->next->next->num)
+		{
+			push_swap_ra(a);
+			push_swap_sa(a);
+		}
+		if ((*a)->next->next->num > (*a)->next->num && (*a)->num > (*a)->next->next->num)
+			push_swap_ra(a);
+		if ((*a)->num > (*a)->next->num && (*a)->next->next->num > (*a)->num)
+			push_swap_sa(a);
+		if ((*a)->next->num > (*a)->num && (*a)->num > (*a)->next->next->num)
+			push_swap_rra(a);
+		if ((*a)->next->num > (*a)->next->next->num && (*a)->next->next->num > (*a)->num)
+		{
+			push_swap_ra(a);
+			push_swap_sa(a);
+			push_swap_rra(a);
+		}
+		return ;
+	}
 	quicksort_firststep(a, b);
 	over_3_func(a, b);
-	//over_3_funcで全ての文字をaに戻してしまっている、何故
 	//print_anode(a);
 	if (wedge_checker(a) == true)
 		quicksort_dividearrange(a, b);

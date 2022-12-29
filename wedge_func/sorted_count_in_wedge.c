@@ -1,6 +1,18 @@
-#include "../pushswap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorted_count_in_wedge.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: satushi <satushi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/29 21:29:22 by satushi           #+#    #+#             */
+/*   Updated: 2022/12/29 21:39:36 by satushi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int sorted_count(t_staccontent **list);
+#include "../push_swap.h"
+
+int sorted_count(t_staccontent **list)
 {
 	t_staccontent	*list_f;
 	t_staccontent	*node;
@@ -11,7 +23,7 @@ int sorted_count(t_staccontent **list);
 	list_f = *list;
 	node = *list;
 	tentative_most_minimumnum = node->num;
-	while (node->before->wedge != true)
+	while (node->prev->wedge != true)
 	{
 		node = node->next;
 		if (node->num < tentative_most_minimumnum)
@@ -23,7 +35,7 @@ int sorted_count(t_staccontent **list);
 	counter = 0;
 	node = list_f;
 	tmp_buff = node->num;
-	while (node->before->wedge != true)
+	while (node->prev->wedge != true)
 	{
 		node = node->next;
 		if (node->num < tmp_buff)
@@ -45,7 +57,7 @@ int sorted_count(t_staccontent **list);
 // 2 3 4 1 5
 // だと最悪だった　解決済み
 
-int main()
-{
-	return (0);
-}
+// int main()
+// {
+// 	return (0);
+// }

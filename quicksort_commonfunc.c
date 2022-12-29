@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void print_node(t_staccontent **a)
+/*static void print_node(t_staccontent **a)
 {
 	t_staccontent *node;
 	t_staccontent *first;
@@ -28,7 +28,8 @@ static void print_node(t_staccontent **a)
 	}
 	printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
 	*a = first;
-}
+}*/
+
 
 void	over_3_func(t_staccontent **a, t_staccontent **b)
 {
@@ -40,18 +41,17 @@ void	over_3_func(t_staccontent **a, t_staccontent **b)
 		quicksort_b_to_a(a, b);
 		b_len = grasp_listlen(b);
 	}
-	// ここが、無駄になっている
 	if (b_len == 3)
 	{
-		printf("b_len is not zero!\n");
+		//printf("b_len is not zero!\n");
 		patt_threenum(b);
 	}
 	else if (b_len == 2)
 	{
-		printf("blen is not zero!!\n");
+		//printf("blen is not zero!!\n");
 		patt_twonum(b);
 	}
-	printf("blen is not zero!!\n");
+	//printf("blen is not zero!!\n");
 	while (b_len != 0)
 	{
 		pb(a, b);
@@ -88,6 +88,27 @@ t_staccontent **a, t_staccontent **b)
 		push_swap_rb(b);
 }
 
+bool should_continue_subfunc(t_staccontent **list, size_t listlen, int b_mediam)
+{
+	t_staccontent	*f_list;
+	t_staccontent	*node;
+
+	f_list = *list;
+	node = *list;
+	while (listlen != 0)
+	{
+		if (node->num >= b_mediam)
+		{
+			*list = f_list;
+			return (true);
+		}
+		node = node->next;
+		listlen--;
+	}
+	*list = f_list;
+	return (false);
+}
+
 void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 {
 	int		b_mediamnum;
@@ -96,21 +117,26 @@ void	quicksort_b_to_a(t_staccontent **a, t_staccontent **b)
 
 	b_mediamnum = mediam(b);
 	judgenum = 0;
-	print_node(b);
+	//print_node(b);
 	if ((*b)->num >= b_mediamnum)
 	{
 		judgenum++;
 		(*b)->wedge = true;
 		pb(a, b);
 	}
+	//blen が全権探索する必要はないのでは
 	b_len = grasp_listlen(b);
+	// if (subfunc_is_notneed(b, b_len, b_mediamnum) == false)
+	// 	return ;
 	while (b_len != 0)
 	{
-		printf("%s\n", "this is moved");
-		print_node(b);
+		//printf("%s\n", "this is moved");
+		if (should_continue_subfunc(b, b_len, b_mediamnum) == false)
+			return ;
 		quicksort_subfunc(&judgenum, b_mediamnum, a, b);
 		b_len--;
 	}
+	//printf("---------\n");
 }
 
 bool	wedge_checker(t_staccontent **sublist)

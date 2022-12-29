@@ -17,9 +17,9 @@ size_t  obtain_strlen(char *sub)
     size_t strlen;
 
     strlen = 0;
-    while (sub[strlen] != 0)
+    while (sub[strlen] != '\0')
         strlen++;
-    strlen++;
+    //strlen++;
     return (strlen);
 }
 

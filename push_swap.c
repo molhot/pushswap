@@ -12,6 +12,24 @@
 
 #include "push_swap.h"
 
+// static void print_node(t_staccontent **a)
+// {
+// 	t_staccontent *node;
+// 	t_staccontent *first;
+// 	node = *a;
+// 	first = *a;
+// 	int i = 0;
+
+// 	while (node -> next != *a)
+// 	{
+// 		printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+// 		i++;
+// 		node = node->next;
+// 	}
+// 	printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+// 	*a = first;
+// }
+
 t_staccontent	**list_initialization(void)
 {
 	t_staccontent	**subject_list;
@@ -106,6 +124,7 @@ t_staccontent	**push_swap(int arg_num, char **num_ch)
 		return (a);
 	if (sortcheck(a) == true)
 		return (a);
+	//print_node(a);
 	b = list_initialization();
 	free(*b);
 	(*b) = NULL;
@@ -128,16 +147,16 @@ int	main(int argc, char **argv)
 	}
 	else if (a == NULL && argc == 1)
 	{
-		printf("\n");
+		//printf("\n");
 		return (1);
 	}
 	node = (*a);
 	while (node->next != *a)
 	{
-		printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
+		//printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
 		node = node->next;
 		i++;
 	}
-	printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
+	//printf("|%d is %d && wedge is %d|\n" ,i, node->num, node->wedge);
 	return (1);
 }

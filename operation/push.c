@@ -12,6 +12,24 @@
 
 #include "../push_swap.h"
 
+// static void print_node(t_staccontent **a)
+// {
+// 	t_staccontent *node;
+// 	t_staccontent *first;
+// 	node = *a;
+// 	first = *a;
+// 	int i = 0;
+
+// 	while (node -> next != *a)
+// 	{
+// 		printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+// 		i++;
+// 		node = node->next;
+// 	}
+// 	printf("%d is %d and wedge is %d (0 is false)\n", i, node->num, node->wedge);
+// 	*a = first;
+// }
+
 static void	push_subfunc(t_staccontent **push, \
 t_staccontent *newcontent, t_staccontent **inserted)
 {
@@ -55,11 +73,11 @@ void	pushfunc(t_staccontent **inserted, t_staccontent **push)
 void	pa(t_staccontent **a, t_staccontent **b)
 {
 	pushfunc(b, a);
-	showchar("pa\n");
+	showchar("pb\n");
 }
 
 void	pb(t_staccontent **a, t_staccontent **b)
 {
 	pushfunc(a, b);
-	showchar("pb\n");
+	showchar("pa\n");
 }
