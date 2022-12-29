@@ -56,10 +56,7 @@ void	quicksort_secondstep(t_staccontent **a, t_staccontent **b)
 		if (tmp_buf < (*a)->num)
 			pa(a, b);
 		else
-		{
 			pa(a, b);
-			push_swap_rb(b);
-		}
 		tmp_buf = (*b)->num;
 	}
 }
@@ -116,6 +113,7 @@ void	quicksort_main(t_staccontent **a, t_staccontent **b)
 {
 	quicksort_firststep(a, b);
 	over_3_func(a, b);
+	//over_3_funcで全ての文字をaに戻してしまっている、何故
 	//print_anode(a);
 	if (wedge_checker(a) == true)
 		quicksort_dividearrange(a, b);
